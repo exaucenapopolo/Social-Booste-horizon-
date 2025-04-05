@@ -1,0 +1,10 @@
+/social-boost-horizon/
+├── index.html
+├── facebook.html
+├── tiktok.html
+├── instagram.html
+├── youtube.html
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js

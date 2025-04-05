@@ -1,0 +1,29 @@
+/* Reset & typo */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; line-height:1.5; color:#333; }
+.container { width:90%; max-width:1100px; margin: auto; }
+
+/* Header */
+.site-header { background:#222; color:#fff; padding:1rem 0; }
+.site-header h1 { display:inline; font-size:1.8rem; margin-left:1rem; }
+.btn-primary { background:#ff6600; color:#fff; padding:0.5rem 1rem; text-decoration:none; border-radius:4px; }
+
+/* Nav sticky */
+.main-nav { position: sticky; top:0; background:#fff; border-bottom:1px solid #ddd; }
+.main-nav ul { display:flex; list-style:none; }
+.main-nav li { margin:0 1rem; }
+.main-nav a { text-decoration:none; color:#222; padding:1rem 0; display:flex; align-items:center; }
+.main-nav i { margin-right:0.5rem; }
+
+/* Sections */
+.hero { background:#f4f4f4; padding:2rem 0; text-align:center; }
+.pricing-table table { width:100%; border-collapse:collapse; margin-bottom:2rem; }
+.pricing-table th, .pricing-table td { border:1px solid #ddd; padding:0.5rem; text-align:center; }
+
+/* FAQ */
+details { margin-bottom:1rem; }
+summary { font-weight:bold; cursor:pointer; }
+
+/* Footer */
+.site-footer { background:#222; color:#fff; text-align:center; padding:1rem 0; margin-top:2rem; }
+.site-footer a { color:#ff6600; text-decoration:none; margin:0 0.5rem; }
