@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SOCIAL BOOSTE HORIZON</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* === Styles généraux === */
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
+    header { background:#047aed; color:#fff; text-align:center; padding:30px 10px; position:relative; display:flex; align-items:center; justify-content:center; }
+    header .logo { margin-right:15px; }
+    header .logo img { height:50px; }
+    header h1 { margin:0; font-size:1.8rem; }
+    #site-search { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); width:80%; max-width:300px; padding:8px; border-radius:4px; border:none; }
+    .banner img { width:100%; height:60vh; object-fit:cover; display:block; }
+    section { padding:20px; max-width:1000px; margin:20px auto; background:#fff; border-radius:8px; }
+    h2 { color:#047aed; border-bottom:2px solid #047aed; padding-bottom:5px; }
+    .btn { display:inline-block; margin-top:10px; background:#25D366; color:#fff; padding:10px 15px; text-decoration:none; border-radius:5px; font-weight:bold; }
+    .btn-secondary { background:#ffc107; color:#222; margin-left:10px; }
+    .custom-order { display:none; margin-top:15px; padding:15px; border:1px solid #ddd; border-radius:5px; background:#fafafa; }
+    .custom-order label { display:block; margin:8px 0; }
+    .custom-order input, .custom-order select, .custom-order textarea { width:100%; padding:5px; border:1px solid #ccc; border-radius:4px; }
+    .custom-order .co-send { margin-top:10px; background:#25D366; color:#fff; padding:8px 12px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; }
+    #tarifs .tarif-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+    .tarif-section { padding:15px; background:#fff; border:1px solid #ddd; border-radius:5px; }
+    .tarif-section h3 { color:#047aed; margin-bottom:10px; }
+    .tarif-section table { width:100%; border-collapse:collapse; }
+    .tarif-section th, .tarif-section td { border:1px solid #ddd; padding:8px; text-align:center; }
+    .tarif-section th { background:#f4f4f4; }
+    .testimonial img { width:100%; max-width:800px; display:block; margin:30px auto; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    footer { background:#222; color:#fff; text-align:center; padding:20px; }
+    footer a { color:#00ffcc; text-decoration:none; margin:0 10px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="img/IMG/39AE1E0B-E163-4DC8-8A83-FF931C7D8BF3.jpeg" alt="Logo Social Boost Horizon">
+  </div>
+  <h1>SOCIAL BOOSTE HORIZON</h1>
+  <input id="site-search" type="text" placeholder="Rechercher...">
+</header>
+
+<!-- Bannière pleine largeur -->
+<div class="banner">
+  <img src="img/IMG/FE46B6BE-0C90-4D5B-8932-3C22932C3C21.jpeg" alt="Bannière Social Boost Horizon">
+</div>
+
+<section id="presentation">
+  <h2>Présentation</h2>
+  <p>Bienvenue chez <strong>Social Boost Horizon</strong>, votre partenaire de confiance pour le développement et l’optimisation de votre présence en ligne. Notre mission est d’accompagner les entreprises, les entrepreneurs et les particuliers dans leur stratégie digitale, afin d’accroître leur visibilité et leur notoriété sur l’ensemble des plateformes sociales.</p>
+</section>
+
+<!-- Services (inchangés) -->
+<section class="service" data-service="boost">
+  <h2>1. Boostage sur les réseaux sociaux</h2>
+  <p>Boostez votre présence en ligne avec notre service de boostage sur les réseaux sociaux ! Choisissez votre commande ou personnalisez-la vous‑même via le bouton ci‑dessous. Nous vous aiderons à augmenter votre visibilité, vos followers, vos likes et vos partages sur les plateformes sociales de votre choix. Nos tarifs sont compétitifs et nos résultats sont garantis. Contactez‑nous pour en savoir plus !</p>
+  <a class="btn" href="https://wa.me/237699853665" target="_blank">Commander via WhatsApp</a>
+  <button class="btn btn-secondary toggle-form">Personnaliser la commande</button>
+  <div class="custom-order">
+    <label>Plateforme :
+      <select class="co-platform">
+        <option value="facebook">Facebook</option>
+        <option value="tiktok">TikTok</option>
+        <option value="instagram">Instagram</option>
+        <option value="youtube">YouTube</option>
+      </select>
+    </label>
+    <label>Service :
+      <select class="co-service"></select>
+    </label>
+    <label>Quantité :
+      <input type="number" class="co-quantity" placeholder="Ex. 1500">
+    </label>
+    <button class="co-send">Envoyer sur WhatsApp</button>
+  </div>
+</section>
+
+<section class="service" data-service="tiktok">
+  <h2>2. Création de compte TikTok</h2>
+  <p>Créez un compte TikTok professionnel avec nous ! Pour créer votre compte, nous avons besoin de quelques informations : nom, prénom, date de naissance, nom de compte, e‑mail, téléphone… Remplissez le formulaire ci‑dessous et nous nous occupons de tout.</p>
+  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+  <div class="custom-order">
+    <label>Prénom : <input type="text" class="co-firstname"></label>
+    <label>Nom : <input type="text" class="co-lastname"></label>
+    <label>Date de naissance : <input type="date" class="co-dob"></label>
+    <label>Nom de compte : <input type="text" class="co-account"></label>
+    <label>E-mail : <input type="email" class="co-email"></label>
+    <label>Téléphone : <input type="tel" class="co-phone"></label>
+    <label>Pays : <input type="text" class="co-country"></label>
+    <button class="co-send">Envoyer sur WhatsApp</button>
+  </div>
+</section>
+
+<section class="service" data-service="fbpage">
+  <h2>3. Création de pages Facebook pro</h2>
+  <p>Créez une page Facebook professionnelle avec nous ! Les infos requises sont identiques à celles d’un compte TikTok : nom, prénom, date de naissance, nom de page, e‑mail, téléphone, pays…</p>
+  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+  <div class="custom-order">
+    <label>Prénom : <input type="text" class="co-firstname"></label>
+    <label>Nom : <input type="text" class="co-lastname"></label>
+    <label>Date de naissance : <input type="date" class="co-dob"></label>
+    <label>Nom de page : <input type="text" class="co-account"></label>
+    <label>E-mail : <input type="email" class="co-email"></label>
+    <label>Téléphone : <input type="tel" class="co-phone"></label>
+    <label>Pays : <input type="text" class="co-country"></label>
+    <button class="co-send">Envoyer sur WhatsApp</button>
+  </div>
+</section>
+
+<section class="service" data-service="chanson">
+  <h2>4. Chanson personnalisée</h2>
+  <p>Commandez une chanson personnalisée pour un événement spécial ou pour faire plaisir à un proche ! Indiquez votre idée, le nom du destinataire et tous les détails souhaités.</p>
+  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+  <div class="custom-order">
+    <label>Vos instructions :<br>
+      <textarea class="co-text" rows="4" placeholder="Décrivez votre chanson"></textarea>
+    </label>
+    <button class="co-send">Envoyer sur WhatsApp</button>
+  </div>
+</section>
+
+<section class="service" data-service="site">
+  <h2>5. Développement de sites web</h2>
+  <p>Créez un site web professionnel : vitrines, e‑commerce, responsive. Donnez-nous le nom du site, votre idée, une description, et nous nous occupons de tout.</p>
+  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+  <div class="custom-order">
+    <label>Nom du site : <input type="text" class="co-text"></label>
+    <label>Idée / objectif : <input type="text" class="co-text"></label>
+    <label>Description :<br>
+      <textarea class="co-text" rows="3"></textarea>
+    </label>
+    <label>Autres infos :<br>
+      <textarea class="co-text" rows="2"></textarea>
+    </label>
+    <button class="co-send">Envoyer sur WhatsApp</button>
+  </div>
+</section>
+
+<section class="service" data-service="app">
+  <h2>6. Création d’applications mobiles</h2>
+  <p>Créez une application mobile sur mesure ! Donnez le nom, votre idée, une description, et toutes les infos nécessaires.</p>
+  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+  <div class="custom-order">
+    <label>Nom de l’application : <input type="text" class="co-text"></label>
+    <label>Idée / objectif : <input type="text" class="co-text"></label>
+    <label>Description :<br>
+      <textarea class="co-text" rows="3"></textarea>
+    </label>
+    <label>Autres infos :<br>
+      <textarea class="co-text" rows="2"></textarea>
+    </label>
+    <button class="co-send">Envoyer sur WhatsApp</button>
+  </div>
+</section>
+
+<section class="service" data-service="logo">
+  <h2>7. Création de logos & flyers</h2>
+  <p>Concevez votre identité visuelle : logo, flyers, cartes, bannières. Donnez-nous le nom, votre idée, une description, et on s’en charge.</p>
+  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+  <div class="custom-order">
+    <label>Nom de la marque : <input type="text" class="co-text"></label>
+    <label>Idée / objectif : <input type="text" class="co-text"></label>
+    <label>Description :<br>
+      <textarea class="co-text" rows="3"></textarea>
+    </label>
+    <label>Autres infos :<br>
+      <textarea class="co-text" rows="2"></textarea>
+    </label>
+    <button class="co-send">Envoyer sur WhatsApp</button>
+  </div>
+</section>
+
+<section class="service" data-service="vpn">
+  <h2>8. VPN</h2>
+  <p>Accédez à Internet gratuitement et en toute sécurité ! Choisissez connexion limitée ou illimitée, quantité en méga, et durée d’utilisation.</p>
+  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+  <div class="custom-order">
+    <label>Type :
+      <select class="co-type">
+        <option value="illimité">Illimité</option>
+        <option value="limité">Limité</option>
+      </select>
+    </label>
+    <label>Quantité (Mo) :
+      <input type="number" class="co-quantity" placeholder="Ex. 5000">
+    </label>
+    <label>Durée (jours) :
+      <input type="number" class="co-days" placeholder="Ex. 30">
+    </label>
+    <button class="co-send">Envoyer sur WhatsApp</button>
+  </div>
+</section>
+
+<section id="tarifs">
+  <h2>Tarifs détaillés</h2>
+  <div class="tarif-grid">
+    <!-- Tes 4 blocs de tarifs ici -->
+  </div>
+  <div style="text-align:center; margin-top:15px;">
+    <button class="btn btn-secondary toggle-form" data-service="tarifs">
+      Personnaliser votre commande
+    </button>
+    <div class="custom-order">
+      <label>Plateforme :
+        <select class="co-platform">
+          <option value="facebook">Facebook</option>
+          <option value="tiktok">TikTok</option>
+          <option value="instagram">Instagram</option>
+          <option value="youtube">YouTube</option>
+        </select>
+      </label>
+      <label>Service :
+        <select class="co-service"></select>
+      </label>
+      <label>Quantité :
+        <input type="number" class="co-quantity" placeholder="Ex. 1500">
+      </label>
+      <button class="co-send">Envoyer sur WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- Inscription / Connexion -->
+<section id="inscription" class="form-container">
+  <h3 style="text-align:center;">Créer un compte ou se connecter</h3>
+  <!-- ... -->
+</section>
+
+<!-- Image testimonial -->
+<div class="testimonial">
+  <img src="img/IMG/Q4zoEmJGdQbADaJ3FFgW8.png" alt="Témoignage Social Boost Horizon">
+</div>
+
+<section>
+  <h2>Pourquoi choisir Social Boost Horizon ?</h2>
+  <ul>
+    <li>Expertise & professionnalisme</li>
+    <li>Approche personnalisée</li>
+    <li>Accompagnement complet</li>
+    <li>Résultats mesurables</li>
+    <li>Tarifs compétitifs</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Suivez-nous :
+    <a href="https://www.facebook.com/profile.php?id=61574589563101&mibextid=wwXIfr">Facebook</a> |
+    <a href="https://www.tiktok.com/@mc.exau0">TikTok</a> |
+    <a href="https://www.instagram.com/mc.exau">Instagram</a>
+  </p>
+  <p>© 2025 Social Boost Horizon | par Napopolo Exaucé (Mč Exau)</p>
+</footer>
+
+<script>
+  // Données tarifaires et scripts inline (inchangés)
+  const pricingData = { /* … */ };
+
+  document.querySelectorAll('.toggle-form').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sec = btn.closest('section');
+      const form = sec.querySelector('.custom-order');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      if (sec.dataset.service === 'boost' || sec.dataset.service === 'tarifs') {
+        initBoostForm(form);
+      }
+    });
+  });
+
+  function initBoostForm(form) {
+    const platSel = form.querySelector('.co-platform');
+    const servSel = form.querySelector('.co-service');
+    const qtyInp  = form.querySelector('.co-quantity');
+    const sendBtn = form.querySelector('.co-send');
+    function update() {
+      const p = platSel.value;
+      servSel.innerHTML = '';
+      Object.keys(pricingData[p]).forEach(s => servSel.add(new Option(s, s)));
+    }
+    platSel.addEventListener('change', update);
+    servSel.addEventListener('change', update);
+    update();
+    sendBtn.onclick = () => {
+      const p = platSel.value, s = servSel.value, q = qtyInp.value;
+      if (!q) return alert('Veuillez indiquer une quantité');
+      const prix = pricingData[p][s][q] || '–';
+      window.open(`https://wa.me/237699853665?text=${encodeURIComponent(`Je commande ${q} ${s} sur ${p} pour ${prix} FCFA.`)}`, '_blank');
+    };
+  }
+
+  // Barre de recherche
+  const sections = document.querySelectorAll('section, .banner, .testimonial');
+  document.getElementById('site-search').addEventListener('input', e => {
+    const q = e.target.value.toLowerCase();
+    sections.forEach(sec => {
+      sec.style.display = !q || sec.innerText.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
