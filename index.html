@@ -5,255 +5,148 @@
   <title>SOCIAL BOOSTE HORIZON</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* === Styles généraux === */
-    body { 
-      font-family: Arial, sans-serif; 
-      margin:0; 
-      padding:0; 
-      background:#f4f4f4; 
-      color:#333; 
-    }
+    /* === Styles généraux existants === */
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
     header {
-      background:#047aed; 
-      color:#fff; 
-      padding:20px 10px; 
-      position:relative;
-      display:flex; 
-      align-items:center; 
-      justify-content:space-between;
+      background:#047aed; color:#fff; text-align:center; padding:20px 10px; position:relative;
+      display:flex; align-items:center; justify-content:center; flex-wrap: wrap;
     }
-    header .logo { 
-      display:flex; 
-      align-items:center; 
-    }
-    header .logo img { 
-      height:50px; 
-      margin-right:15px; 
-    }
-    header h1 { 
-      font-size:1.8rem; 
-      margin:0; 
-    }
+    header .logo { margin-right:15px; }
+    header .logo img { height:50px; }
+    header h1 { margin:0; font-size:1.8rem; }
     #site-search {
       margin-top:15px;
-      width:80%; 
-      max-width:300px; 
-      padding:8px; 
-      border-radius:4px; 
-      border:none;
+      width:80%; max-width:300px; padding:8px; border-radius:4px; border:none;
     }
-    /* Bouton du menu déroulant */
-    .menu-toggle {
+    .banner img {
+      width:100%; height:60vh; object-fit:cover; display:block;
+    }
+    section { padding:20px; max-width:1000px; margin:20px auto; background:#fff; border-radius:8px; }
+    h2 { color:#047aed; border-bottom:2px solid #047aed; padding-bottom:5px; }
+    .btn { display:inline-block; margin-top:10px; background:#25D366; color:#fff; padding:10px 15px; text-decoration:none; border-radius:5px; font-weight:bold; }
+    .btn-secondary { background:#ffc107; color:#222; margin-left:10px; }
+    .custom-order { display:none; margin-top:15px; padding:15px; border:1px solid #ddd; border-radius:5px; background:#fafafa; }
+    .custom-order label { display:block; margin:8px 0; }
+    .custom-order input, .custom-order select, .custom-order textarea { width:100%; padding:5px; border:1px solid #ccc; border-radius:4px; }
+    .custom-order .co-send { margin-top:10px; background:#25D366; color:#fff; padding:8px 12px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; }
+    .price-estimate { margin-top:10px; font-weight:bold; color:#047aed; }
+    #tarifs .tarif-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+    .tarif-section { padding:15px; background:#fff; border:1px solid #ddd; border-radius:5px; }
+    .tarif-section h3 { color:#047aed; margin-bottom:10px; }
+    .tarif-section table { width:100%; border-collapse:collapse; }
+    .tarif-section th, .tarif-section td { border:1px solid #ddd; padding:8px; text-align:center; }
+    .tarif-section th { background:#f4f4f4; }
+    .testimonial img { width:100%; max-width:800px; display:block; margin:30px auto; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    footer { background:#222; color:#fff; text-align:center; padding:20px; }
+    footer a { color:#00ffcc; text-decoration:none; margin:0 10px; }
+    .form-container input, .form-container select, .form-container button {
+      width:100%; padding:10px; margin:8px 0; border-radius:4px; border:1px solid #ccc;
+    }
+    .form-container .btn-form { background:#047aed; color:#fff; border:none; cursor:pointer; }
+
+    /* --- CSS pour le menu hamburger --- */
+    .hamburger-btn {
       background: none;
       border: none;
-      color: #fff;
-      font-size: 1.5rem;
       cursor: pointer;
-    }
-    /* Menu déroulant (hidden by default) */
-    .dropdown-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
       position: absolute;
-      top: 100%;
-      right: 10px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      border-radius: 4px;
-      overflow: hidden;
-      width: 200px;
-      display: none;
-      z-index: 1000;
+      right: 20px;
+      top: 20px;
     }
-    .dropdown-menu a {
+    .hamburger-btn span {
       display: block;
-      padding: 10px 15px;
-      color: #047aed;
-      text-decoration: none;
-      border-bottom: 1px solid #ddd;
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      border-radius: 2px;
     }
-    .dropdown-menu a:last-child {
+    .nav-menu {
+      display: none; /* caché par défaut */
+      background-color: #047aed;
+      position: absolute;
+      top: 70px; /* ajustez selon la hauteur du header */
+      right: 0;
+      width: 200px;
+      z-index: 1000;
+      border-radius: 0 0 5px 5px;
+    }
+    .nav-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-menu li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-menu li:last-child {
       border-bottom: none;
     }
-    .dropdown-menu a:hover {
-      background: #f4f4f4;
-    }
-    /* Bannière et sections */
-    .banner img {
-      width:100%; 
-      height:60vh; 
-      object-fit:cover; 
-      display:block;
-    }
-    section { 
-      padding:20px; 
-      max-width:1000px; 
-      margin:20px auto; 
-      background:#fff; 
-      border-radius:8px; 
-    }
-    h2 { 
-      color:#047aed; 
-      border-bottom:2px solid #047aed; 
-      padding-bottom:5px; 
-    }
-    .btn { 
-      display:inline-block; 
-      margin-top:10px; 
-      background:#25D366; 
-      color:#fff; 
-      padding:10px 15px; 
-      text-decoration:none; 
-      border-radius:5px; 
-      font-weight:bold; 
-    }
-    .btn-secondary { 
-      background:#ffc107; 
-      color:#222; 
-      margin-left:10px; 
-    }
-    .custom-order { 
-      display:none; 
-      margin-top:15px; 
-      padding:15px; 
-      border:1px solid #ddd; 
-      border-radius:5px; 
-      background:#fafafa; 
-    }
-    .custom-order label { 
-      display:block; 
-      margin:8px 0; 
-    }
-    .custom-order input, 
-    .custom-order select, 
-    .custom-order textarea { 
-      width:100%; 
-      padding:5px; 
-      border:1px solid #ccc; 
-      border-radius:4px; 
-    }
-    .custom-order .co-send { 
-      margin-top:10px; 
-      background:#25D366; 
-      color:#fff; 
-      padding:8px 12px; 
-      border:none; 
-      border-radius:5px; 
-      font-weight:bold; 
-      cursor:pointer; 
-    }
-    .price-estimate { 
-      margin-top:10px; 
-      font-weight:bold; 
-      color:#047aed; 
-    }
-    #tarifs .tarif-grid { 
-      display:grid; 
-      grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); 
-      gap:20px; 
-    }
-    .tarif-section { 
-      padding:15px; 
-      background:#fff; 
-      border:1px solid #ddd; 
-      border-radius:5px; 
-    }
-    .tarif-section h3 { 
-      color:#047aed; 
-      margin-bottom:10px; 
-    }
-    .tarif-section table { 
-      width:100%; 
-      border-collapse:collapse; 
-    }
-    .tarif-section th, 
-    .tarif-section td { 
-      border:1px solid #ddd; 
-      padding:8px; 
-      text-align:center; 
-    }
-    .tarif-section th { 
-      background:#f4f4f4; 
-    }
-    .testimonial img { 
-      width:100%; 
-      max-width:800px; 
-      display:block; 
-      margin:30px auto; 
-      border-radius:8px; 
-      box-shadow:0 2px 6px rgba(0,0,0,0.1); 
-    }
-    footer { 
-      background:#222; 
-      color:#fff; 
-      text-align:center; 
-      padding:20px; 
-    }
-    footer a { 
-      color:#00ffcc; 
-      text-decoration:none; 
-      margin:0 10px; 
-    }
-    .form-container input, 
-    .form-container select, 
-    .form-container button {
-      width:100%; 
-      padding:10px; 
-      margin:8px 0; 
-      border-radius:4px; 
-      border:1px solid #ccc;
-    }
-    .form-container .btn-form { 
-      background:#047aed; 
-      color:#fff; 
-      border:none; 
-      cursor:pointer; 
-    }
-    /* --- Styles pour la section Profil --- */
-    #profil form {
-      margin-top: 10px;
-    }
-    #profil label {
-      margin-top: 12px;
+    .nav-menu a {
       display: block;
+      padding: 10px 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
     }
-    #profil input[type="file"] {
-      padding: 0;
-      border: none;
+    .nav-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
     }
-    .preview-photo {
-      margin-top: 10px;
-      max-width:150px;
-      border-radius:50%;
-    }
-    /* --- Styles pour la section Commandes --- */
-    .commande-item {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 10px;
-      margin: 10px 0;
-      background: #fafafa;
+    /* Sur écran large, le menu s'affiche en horizontal */
+    @media (min-width: 768px) {
+      .hamburger-btn {
+        display: none;
+      }
+      .nav-menu {
+        display: block;
+        position: static;
+        width: auto;
+        background: transparent;
+      }
+      .nav-menu ul {
+        display: flex;
+        gap: 15px;
+      }
+      .nav-menu a {
+        padding: 0;
+        color: #fff;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header avec logo, titre et bouton menu -->
-  <header>
+  <!-- HEADER AVEC BOUTON HAMBURGER -->
+  <header id="top">
     <div class="logo">
       <img src="img/IMG/39AE1E0B-E163-4DC8-8A83-FF931C7D8BF3.jpeg" alt="Logo Social Boost Horizon">
-      <h1>SOCIAL BOOSTE HORIZON</h1>
     </div>
-    <!-- Bouton de menu (type hamburger) -->
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
-    <!-- Menu déroulant -->
-    <div class="dropdown-menu" id="dropdown-menu">
-      <a href="#profil">Mon Profil</a>
-      <a href="#commandes">Mes Commandes</a>
-      <a href="#apropos">À propos de nous</a>
-    </div>
+    <h1>SOCIAL BOOSTE HORIZON</h1>
+    <input id="site-search" type="text" placeholder="Rechercher...">
+  
+    <!-- Bouton hamburger pour mobile -->
+    <button id="hamburger-btn" class="hamburger-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
-  <input id="site-search" type="text" placeholder="Rechercher..." style="display:block; margin: 10px auto; max-width:300px;">
+  <!-- MENU DE NAVIGATION -->
+  <nav id="nav-menu" class="nav-menu">
+    <ul>
+      <li><a href="#top" onclick="scrollToTop();">Accueil</a></li>
+      <li><a href="#compte" onclick="showAccount();">Mon compte</a></li>
+      <li><a href="#commandes" onclick="showOrders();">Mes commandes</a></li>
+      <li><a href="#a-propos">À propos</a></li>
+      <li><a href="#confidentialite">Confidentialité</a></li>
+      <li><a href="#deconnexion" onclick="confirmLogout();">Déconnexion</a></li>
+    </ul>
+  </nav>
 
+  <!-- Bannière -->
   <div class="banner">
     <img src="img/IMG/FE46B6BE-0C90-4D5B-8932-3C22932C3C21.jpeg" alt="Bannière Social Boost Horizon">
   </div>
@@ -285,7 +178,6 @@
       <label>Quantité :
         <input type="number" class="co-quantity" placeholder="Ex. 1500">
       </label>
-      <!-- Nouveau champ pour le lien -->
       <label>Lien de la publication :
         <input type="text" class="co-link" placeholder="Collez ici le lien de votre vidéo ou publication">
       </label>
@@ -294,18 +186,136 @@
     </div>
   </section>
 
-  <!-- Autres sections de services (TikTok, FB page, chanson, sites, apps, logos, VPN) conservées telles quelles -->
-  <!-- ... (code inchangé des autres sections de service) ... -->
+  <section class="service" data-service="tiktok">
+    <h2>2. Création de compte TikTok</h2>
+    <p>Créez un compte TikTok professionnel avec nous ! Pour créer votre compte, nous avons besoin de quelques informations : nom, prénom, date de naissance, nom de compte, e‑mail, téléphone… Remplissez le formulaire ci‑dessous et nous nous occupons de tout.</p>
+    <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+    <div class="custom-order">
+      <label>Prénom : <input type="text" class="co-firstname" placeholder="Prénom"></label>
+      <label>Nom : <input type="text" class="co-lastname" placeholder="Nom"></label>
+      <label>Date de naissance : <input type="date" class="co-dob"></label>
+      <label>Nom de compte : <input type="text" class="co-account" placeholder="Nom de compte"></label>
+      <label>E-mail : <input type="email" class="co-email" placeholder="E-mail"></label>
+      <label>Téléphone : <input type="tel" class="co-phone" placeholder="Téléphone"></label>
+      <label>Pays : <input type="text" class="co-country" placeholder="Pays"></label>
+      <button class="co-send">Acheter</button>
+    </div>
+  </section>
+
+  <section class="service" data-service="fbpage">
+    <h2>3. Création de pages Facebook pro</h2>
+    <p>Créez une page Facebook professionnelle avec nous ! Les infos requises sont identiques à celles d’un compte TikTok : nom, prénom, date de naissance, nom de page, e‑mail, téléphone, pays…</p>
+    <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+    <div class="custom-order">
+      <label>Prénom : <input type="text" class="co-firstname" placeholder="Prénom"></label>
+      <label>Nom : <input type="text" class="co-lastname" placeholder="Nom"></label>
+      <label>Date de naissance : <input type="date" class="co-dob"></label>
+      <label>Nom de page : <input type="text" class="co-account" placeholder="Nom de page"></label>
+      <label>E-mail : <input type="email" class="co-email" placeholder="E-mail"></label>
+      <label>Téléphone : <input type="tel" class="co-phone" placeholder="Téléphone"></label>
+      <label>Pays : <input type="text" class="co-country" placeholder="Pays"></label>
+      <button class="co-send">Acheter</button>
+    </div>
+  </section>
+
+  <section class="service" data-service="chanson">
+    <h2>4. Chanson personnalisée</h2>
+    <p>Commandez une chanson personnalisée pour un événement spécial ou pour faire plaisir à un proche ! Indiquez votre idée, le nom du destinataire et tous les détails souhaités.</p>
+    <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+    <div class="custom-order">
+      <label>Vos instructions :<br>
+        <textarea class="co-text" rows="4" placeholder="Décrivez votre chanson"></textarea>
+      </label>
+      <button class="co-send">Acheter</button>
+    </div>
+  </section>
+
+  <section class="service" data-service="site">
+    <h2>5. Développement de sites web</h2>
+    <p>Créez un site web professionnel : vitrines, e‑commerce, responsive. Donnez-nous le nom du site, votre idée, une description, et nous nous occupons de tout.</p>
+    <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+    <div class="custom-order">
+      <label>Nom du site : <input type="text" class="co-text" placeholder="Nom du site"></label>
+      <label>Idée / objectif : <input type="text" class="co-text" placeholder="Idée / objectif"></label>
+      <label>Description :<br>
+        <textarea class="co-text" rows="3" placeholder="Description"></textarea>
+      </label>
+      <label>Autres infos :<br>
+        <textarea class="co-text" rows="2" placeholder="Informations complémentaires"></textarea>
+      </label>
+      <button class="co-send">Acheter</button>
+    </div>
+  </section>
+
+  <section class="service" data-service="app">
+    <h2>6. Création d’applications mobiles</h2>
+    <p>Créez une application mobile sur mesure ! Donnez le nom, votre idée, une description, et toutes les infos nécessaires.</p>
+    <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+    <div class="custom-order">
+      <label>Nom de l’application : <input type="text" class="co-text" placeholder="Nom de l’application"></label>
+      <label>Idée / objectif : <input type="text" class="co-text" placeholder="Idée / objectif"></label>
+      <label>Description :<br>
+        <textarea class="co-text" rows="3" placeholder="Description"></textarea>
+      </label>
+      <label>Autres infos :<br>
+        <textarea class="co-text" rows="2" placeholder="Informations complémentaires"></textarea>
+      </label>
+      <button class="co-send">Acheter</button>
+    </div>
+  </section>
+
+  <section class="service" data-service="logo">
+    <h2>7. Création de logos & flyers</h2>
+    <p>Concevez votre identité visuelle : logo, flyers, cartes, bannières. Donnez-nous le nom, votre idée, une description, et on s’en charge.</p>
+    <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+    <div class="custom-order">
+      <label>Nom de la marque : <input type="text" class="co-text" placeholder="Nom de la marque"></label>
+      <label>Idée / objectif : <input type="text" class="co-text" placeholder="Idée / objectif"></label>
+      <label>Description :<br>
+        <textarea class="co-text" rows="3" placeholder="Description"></textarea>
+      </label>
+      <label>Autres infos :<br>
+        <textarea class="co-text" rows="2" placeholder="Informations complémentaires"></textarea>
+      </label>
+      <button class="co-send">Acheter</button>
+    </div>
+  </section>
+
+  <section class="service" data-service="vpn">
+    <h2>8. VPN</h2>
+    <p>Accédez à Internet gratuitement et en toute sécurité ! Choisissez connexion limitée ou illimitée, quantité en méga, et durée d’utilisation.</p>
+    <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
+    <div class="custom-order">
+      <label>Type :
+        <select class="co-type">
+          <option value="illimité">Illimité</option>
+          <option value="limité">Limité</option>
+        </select>
+      </label>
+      <label>Quantité (Mo) :
+        <input type="number" class="co-quantity" placeholder="Ex. 5000">
+      </label>
+      <label>Durée (jours) :
+        <input type="number" class="co-days" placeholder="Ex. 30">
+      </label>
+      <button class="co-send">Acheter</button>
+    </div>
+  </section>
 
   <!-- Section Tarifs -->
   <section id="tarifs">
     <h2>Tarifs détaillés</h2>
     <div class="tarif-grid">
       <!-- Facebook -->
-      <div class="tarif-section"><h3>Facebook</h3>
+      <div class="tarif-section">
+        <h3>Facebook</h3>
         <table>
           <thead>
-            <tr><th>Service</th><th>Quantité</th><th>Prix (FCFA)</th></tr>
+            <tr>
+              <th>Service</th>
+              <th>Quantité</th>
+              <th>Prix (FCFA)</th>
+            </tr>
           </thead>
           <tbody>
             <tr><td>Followers</td><td>1 000</td><td>2 100</td></tr>
@@ -327,10 +337,15 @@
         </table>
       </div>
       <!-- TikTok -->
-      <div class="tarif-section"><h3>TikTok</h3>
+      <div class="tarif-section">
+        <h3>TikTok</h3>
         <table>
           <thead>
-            <tr><th>Service</th><th>Quantité</th><th>Prix (FCFA)</th></tr>
+            <tr>
+              <th>Service</th>
+              <th>Quantité</th>
+              <th>Prix (FCFA)</th>
+            </tr>
           </thead>
           <tbody>
             <tr><td>Abonnés</td><td>1 000</td><td>2 500</td></tr>
@@ -352,10 +367,15 @@
         </table>
       </div>
       <!-- Instagram -->
-      <div class="tarif-section"><h3>Instagram</h3>
+      <div class="tarif-section">
+        <h3>Instagram</h3>
         <table>
           <thead>
-            <tr><th>Service</th><th>Quantité</th><th>Prix (FCFA)</th></tr>
+            <tr>
+              <th>Service</th>
+              <th>Quantité</th>
+              <th>Prix (FCFA)</th>
+            </tr>
           </thead>
           <tbody>
             <tr><td>Abonnés</td><td>1 000</td><td>2 500</td></tr>
@@ -377,10 +397,15 @@
         </table>
       </div>
       <!-- YouTube -->
-      <div class="tarif-section"><h3>YouTube</h3>
+      <div class="tarif-section">
+        <h3>YouTube</h3>
         <table>
           <thead>
-            <tr><th>Service</th><th>Quantité</th><th>Prix (FCFA)</th></tr>
+            <tr>
+              <th>Service</th>
+              <th>Quantité</th>
+              <th>Prix (FCFA)</th>
+            </tr>
           </thead>
           <tbody>
             <tr><td>Abonnés</td><td>1 000</td><td>5 000</td></tr>
@@ -395,7 +420,6 @@
         </table>
       </div>
     </div>
-
     <!-- Bouton Personnaliser sous Tarifs -->
     <div style="text-align:center; margin-top:15px;">
       <button class="btn btn-secondary toggle-form" data-service="tarifs">
@@ -416,7 +440,6 @@
         <label>Quantité :
           <input type="number" class="co-quantity" placeholder="Ex. 1500">
         </label>
-        <!-- Nouveau champ pour le lien -->
         <label>Lien de la publication :
           <input type="text" class="co-link" placeholder="Collez ici le lien de votre vidéo ou publication">
         </label>
@@ -426,7 +449,7 @@
     </div>
   </section>
 
-  <!-- Section Inscription -->
+  <!-- Section Inscription / Connexion -->
   <section id="inscription" class="form-container">
     <h3 style="text-align:center;">Créer un compte ou se connecter</h3>
     <form>
@@ -445,53 +468,12 @@
     </form>
   </section>
 
-  <!-- Section Mon Profil (accessible via le menu déroulant) -->
-  <section id="profil">
-    <h2>Mon Profil</h2>
-    <form id="profil-form">
-      <label for="profil-nom">Nom :</label>
-      <input type="text" id="profil-nom" name="nom" placeholder="Votre nom" required>
-      <label for="profil-email">Adresse e-mail :</label>
-      <input type="email" id="profil-email" name="email" placeholder="votre.email@example.com" required>
-      <label for="profil-photo">Photo de profil :</label>
-      <input type="file" id="profil-photo" accept="image/*">
-      <img id="photo-preview" class="preview-photo" src="" alt="Aperçu de la photo" style="display:none;">
-      <button type="submit">Enregistrer les modifications</button>
-    </form>
-  </section>
-
-  <!-- Section Mes Commandes (accessible via le menu déroulant) -->
-  <section id="commandes">
-    <h2>Mes Commandes</h2>
-    <form id="commande-form">
-      <label for="commande-nom">Nom de la commande :</label>
-      <input type="text" id="commande-nom" name="commandeNom" placeholder="Ex : Boost Instagram" required>
-      <label for="commande-numero">Numéro de commande :</label>
-      <input type="text" id="commande-numero" name="commandeNumero" placeholder="Ex : CMD123456" required>
-      <label for="commande-details">Détails :</label>
-      <textarea id="commande-details" name="commandeDetails" rows="3" placeholder="Détails de la commande" required></textarea>
-      <label for="commande-lien">Lien :</label>
-      <input type="url" id="commande-lien" name="commandeLien" placeholder="http://...">
-      <label for="commande-date">Date et heure :</label>
-      <input type="datetime-local" id="commande-date" name="commandeDate" required>
-      <button type="submit">Ajouter la commande</button>
-    </form>
-    <div id="liste-commandes">
-      <h3>Liste des commandes</h3>
-      <!-- Les commandes ajoutées s'afficheront ici -->
-    </div>
-  </section>
-
-  <!-- Section À propos de nous -->
-  <section id="apropos">
-    <h2>À propos de nous</h2>
-    <p>Social Boost Horizon est dédié à booster votre visibilité sur internet et à vous apporter des solutions digitales sur mesure.</p>
-  </section>
-
+  <!-- Témoignage -->
   <div class="testimonial">
     <img src="img/IMG/Q4zoEmJGdQbADaJ3FFgW8.png" alt="Témoignage Social Boost Horizon">
   </div>
 
+  <!-- Section Pourquoi choisir Social Boost Horizon -->
   <section>
     <h2>Pourquoi choisir Social Boost Horizon ?</h2>
     <ul>
@@ -503,6 +485,7 @@
     </ul>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>Suivez-nous :
       <a href="https://www.facebook.com/profile.php?id=61574589563101&mibextid=wwXIfr">Facebook</a> |
@@ -512,28 +495,35 @@
     <p>© 2025 Social Boost Horizon | par Napopolo Exaucé (Mč Exau)</p>
   </footer>
 
+  <!-- Script JavaScript -->
   <script>
-    /***************** Menu déroulant dans le header *******************/
-    const menuToggle = document.getElementById('menu-toggle');
-    const dropdownMenu = document.getElementById('dropdown-menu');
-
-    menuToggle.addEventListener('click', () => {
-      // Affiche ou masque le menu
-      if (dropdownMenu.style.display === 'block') {
-        dropdownMenu.style.display = 'none';
-      } else {
-        dropdownMenu.style.display = 'block';
-      }
+    // Gestion du menu hamburger
+    document.getElementById('hamburger-btn').addEventListener('click', () => {
+      const navMenu = document.getElementById('nav-menu');
+      navMenu.style.display = (navMenu.style.display === 'block') ? 'none' : 'block';
     });
 
-    // Ferme le menu si on clique ailleurs dans la page
-    document.addEventListener('click', function(e) {
-      if (!menuToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.style.display = 'none';
+    // Fonctions du menu de navigation
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('nav-menu').style.display = 'none';
+    }
+    function showAccount() {
+      alert("Affichage des informations du compte.");
+      document.getElementById('nav-menu').style.display = 'none';
+    }
+    function showOrders() {
+      alert("Affichage de vos commandes passées.");
+      document.getElementById('nav-menu').style.display = 'none';
+    }
+    function confirmLogout() {
+      if (confirm("Voulez-vous vraiment vous déconnecter ?")) {
+        alert("Déconnexion en cours...");
       }
-    });
+      document.getElementById('nav-menu').style.display = 'none';
+    }
 
-    /***************** Tarification et formulaires de commande *******************/
+    // Définition des tarifs pour chaque plateforme et service
     const pricingData = {
       facebook: { 
         "Followers": {1000:2100, 5000:9500, 10000:19200}, 
@@ -563,6 +553,7 @@
       }
     };
 
+    // Initialisation des formulaires pour les boutons "toggle-form"
     document.querySelectorAll('.toggle-form').forEach(btn => {
       btn.addEventListener('click', () => {
         const sec = btn.closest('section') || document.getElementById('tarifs');
@@ -650,7 +641,7 @@
       };
     }
 
-    // Recherche simple sur la page
+    // Fonction de recherche sur la page
     const sections = document.querySelectorAll('section, .banner, .testimonial');
     document.getElementById('site-search').addEventListener('input', e => {
       const q = e.target.value.toLowerCase();
@@ -658,71 +649,6 @@
         sec.style.display = !q || sec.innerText.toLowerCase().includes(q) ? '' : 'none';
       });
     });
-
-    /***************** Gestion du Profil *******************/
-    const profilForm = document.getElementById('profil-form');
-    const photoInput = document.getElementById('profil-photo');
-    const photoPreview = document.getElementById('photo-preview');
-
-    photoInput.addEventListener('change', function () {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          photoPreview.setAttribute('src', e.target.result);
-          photoPreview.style.display = 'block';
-        }
-        reader.readAsDataURL(file);
-      }
-    });
-
-    profilForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const nom = document.getElementById('profil-nom').value;
-      const email = document.getElementById('profil-email').value;
-      alert('Profil mis à jour pour ' + nom + ' (' + email + ')');
-      // Sauvegarde dans localStorage ou envoi à une API possible ici.
-    });
-
-    /***************** Gestion des Commandes *******************/
-    const commandeForm = document.getElementById('commande-form');
-    const listeCommandes = document.getElementById('liste-commandes');
-    let commandes = [];
-
-    function afficherCommandes() {
-      const container = listeCommandes;
-      container.innerHTML = '<h3>Liste des commandes</h3>';
-      if (commandes.length === 0) {
-        container.innerHTML += '<p>Aucune commande enregistrée.</p>';
-        return;
-      }
-      commandes.forEach((cmd) => {
-        const item = document.createElement('div');
-        item.classList.add('commande-item');
-        item.innerHTML = `
-          <strong>${cmd.nom} (${cmd.numero})</strong><br>
-          <em>Date et heure :</em> ${cmd.date}<br>
-          <em>Détails :</em> ${cmd.details}<br>
-          ${cmd.lien ? `<a href="${cmd.lien}" target="_blank">Voir le lien</a>` : ''}
-        `;
-        container.appendChild(item);
-      });
-    }
-
-    commandeForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const nom = document.getElementById('commande-nom').value;
-      const numero = document.getElementById('commande-numero').value;
-      const details = document.getElementById('commande-details').value;
-      const lien = document.getElementById('commande-lien').value;
-      const date = document.getElementById('commande-date').value;
-      const nouvelleCommande = { nom, numero, details, lien, date };
-      commandes.push(nouvelleCommande);
-      commandeForm.reset();
-      afficherCommandes();
-    });
-
-    afficherCommandes();
   </script>
 
 </body>
