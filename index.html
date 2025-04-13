@@ -2,509 +2,448 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>SOCIAL BOOSTE HORIZON</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cinexo Productions - Compétition en ligne</title>
+  <meta name="description" content="Cinexo Productions organise une compétition en ligne pour promouvoir les talents. Inscrivez-vous ou connectez-vous pour participer.">
   <style>
-    /* === Styles généraux === */
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
+    /* Reset de base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
     header {
-      background:#047aed; color:#fff; text-align:center; padding:20px 10px; position:relative;
-      display:flex; align-items:center; justify-content:center; flex-wrap: wrap;
+      background-color: #008080;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
     }
-    header .logo { margin-right:15px; }
-    header .logo img { height:50px; }
-    header h1 { margin:0; font-size:1.8rem; }
-    #site-search {
-      margin-top:15px;
-      width:80%; max-width:300px; padding:8px; border-radius:4px; border:none;
+    .logo {
+      display: flex;
+      align-items: center;
     }
-    .banner img {
-      width:100%; height:60vh; object-fit:cover; display:block;
+    .logo img {
+      height: 50px;
+      width: auto;
+      margin-right: 10px;
     }
-    section { padding:20px; max-width:1000px; margin:20px auto; background:#fff; border-radius:8px; }
-    h2 { color:#047aed; border-bottom:2px solid #047aed; padding-bottom:5px; }
-    .btn { display:inline-block; margin-top:10px; background:#25D366; color:#fff; padding:10px 15px; text-decoration:none; border-radius:5px; font-weight:bold; }
-    .btn-secondary { background:#ffc107; color:#222; margin-left:10px; }
-    .custom-order { display:none; margin-top:15px; padding:15px; border:1px solid #ddd; border-radius:5px; background:#fafafa; }
-    .custom-order label { display:block; margin:8px 0; }
-    .custom-order input, .custom-order select, .custom-order textarea { width:100%; padding:5px; border:1px solid #ccc; border-radius:4px; }
-    .custom-order .co-send { margin-top:10px; background:#25D366; color:#fff; padding:8px 12px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; }
-    .price-estimate { margin-top:10px; font-weight:bold; color:#047aed; }
-    #tarifs .tarif-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
-    .tarif-section { padding:15px; background:#fff; border:1px solid #ddd; border-radius:5px; }
-    .tarif-section h3 { color:#047aed; margin-bottom:10px; }
-    .tarif-section table { width:100%; border-collapse:collapse; }
-    .tarif-section th, .tarif-section td { border:1px solid #ddd; padding:8px; text-align:center; }
-    .tarif-section th { background:#f4f4f4; }
-    .testimonial img { width:100%; max-width:800px; display:block; margin:30px auto; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    footer { background:#222; color:#fff; text-align:center; padding:20px; }
-    footer a { color:#00ffcc; text-decoration:none; margin:0 10px; }
-    .form-container input, .form-container select, .form-container button {
-      width:100%; padding:10px; margin:8px 0; border-radius:4px; border:1px solid #ccc;
+    .logo h1 {
+      font-size: 1.5em;
     }
-    .form-container .btn-form { background:#047aed; color:#fff; border:none; cursor:pointer; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 0 10px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #c0c0c0;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+    .header-right a {
+      margin-left: 15px;
+      color: #fff;
+      background-color: #005757;
+      padding: 8px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .header-right a:hover {
+      background-color: #003f3f;
+    }
+    /* Bannière d'accueil */
+    .cta-banner {
+      background: url('banner-placeholder.jpg') no-repeat center center/cover;
+      height: 300px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .cta-banner h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .cta-banner p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .cta-banner a {
+      background-color: #008080;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .cta-banner a:hover {
+      background-color: #005757;
+    }
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    section {
+      margin-bottom: 40px;
+      padding: 20px;
+    }
+    section h2 {
+      color: #008080;
+      border-bottom: 2px solid #008080;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+    }
+    /* Section Compte (Inscription / Connexion unifiées) */
+    .account-tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    .account-tabs button {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      color: #008080;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .account-tabs button.active {
+      border-bottom: 3px solid #008080;
+      font-weight: bold;
+    }
+    .account-form {
+      display: none;
+    }
+    .account-form.active {
+      display: block;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button.submit-btn {
+      background-color: #008080;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button.submit-btn:hover {
+      background-color: #005757;
+    }
+    /* Section Participants */
+    .profile-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+    .profile-card:hover {
+      transform: scale(1.02);
+    }
+    /* Section Résultats */
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .results-table th,
+    .results-table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    .results-table th {
+      background-color: #008080;
+      color: #fff;
+    }
+    /* Section Contacts */
+    .contact-details {
+      font-size: 1em;
+      line-height: 1.8;
+    }
+    .contact-details a {
+      color: #008080;
+      text-decoration: none;
+    }
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #008080;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+      }
+      nav ul {
+        flex-direction: column;
+      }
+      nav ul li {
+        margin: 5px 0;
+      }
+      .header-right {
+        margin-top: 10px;
+      }
+      .account-tabs {
+        flex-direction: column;
+      }
+      .account-tabs button {
+        text-align: left;
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- En-tête avec logo, navigation et lien WhatsApp -->
+  <header>
+    <div class="logo">
+      <!-- Remplacer "logo-placeholder.png" par le logo final de Cinexo Productions -->
+      <img src="logo-placeholder.png" alt="Cinexo Productions Logo">
+      <h1>Cinexo Productions</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#compte">Inscription</a></li>
+        <li><a href="#participants">Participants</a></li>
+        <li><a href="#resultats">Résultats</a></li>
+        <li><a href="#contact">Contacts</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <a href="https://wa.me/237699853665" target="_blank">WhatsApp</a>
+    </div>
+  </header>
 
-<header>
-  <div class="logo">
-    <img src="img/IMG/39AE1E0B-E163-4DC8-8A83-FF931C7D8BF3.jpeg" alt="Logo Social Boost Horizon">
-  </div>
-  <h1>SOCIAL BOOSTE HORIZON</h1>
-  <input id="site-search" type="text" placeholder="Rechercher...">
-</header>
+  <!-- Bannière d'accueil avec le message de bienvenue -->
+  <section class="cta-banner" id="accueil">
+    <h2>Bienvenue sur Cinexo Productions</h2>
+    <p>Découvrez la compétition en ligne qui propulse les talents émergents vers de nouveaux horizons.</p>
+    <a href="#compte">Rejoignez-nous</a>
+  </section>
 
-<div class="banner">
-  <img src="img/IMG/FE46B6BE-0C90-4D5B-8932-3C22932C3C21.jpeg" alt="Bannière Social Boost Horizon">
-</div>
+  <!-- Contenu principal : Sections en bas -->
+  <main>
+    <!-- Section À propos -->
+    <section id="apropos">
+      <h2>À propos</h2>
+      <p>
+        Cinexo Productions organise une compétition en ligne dédiée à la promotion des talents artistiques.
+        Notre mission est de valoriser la créativité, offrir une plateforme transparente et sécurisée, et permettre aux fans de soutenir leurs artistes préférés.
+      </p>
+    </section>
 
-<section id="presentation">
-  <h2>Présentation de l'entreprise</h2>
-  <p>Bienvenue chez <strong>Social Boost Horizon</strong>, votre partenaire de confiance pour le développement et l’optimisation de votre présence en ligne. Notre mission est d’accompagner les entreprises, les entrepreneurs, les artistes, les comediens et les particuliers dans leur stratégie digitale, afin d’accroître leur visibilité et leur notoriété sur l’ensemble des plateformes sociales.</p>
-</section>
+    <!-- Section Inscription (Compte unifié : inscription / connexion) -->
+    <section id="compte">
+      <h2>Inscription</h2>
+      <div class="account-tabs">
+        <button id="tabRegister" class="active">S'inscrire</button>
+        <button id="tabLogin">Se connecter</button>
+      </div>
+      <!-- Formulaire d'inscription -->
+      <div id="registerForm" class="account-form active">
+        <form id="signupForm">
+          <div class="form-group">
+            <label for="fullname">Nom complet :</label>
+            <input type="text" id="fullname" name="fullname" required>
+          </div>
+          <div class="form-group">
+            <label for="stageName">Nom d'artiste :</label>
+            <input type="text" id="stageName" name="stageName" required>
+          </div>
+          <div class="form-group">
+            <label for="birthdate">Date de naissance :</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+          </div>
+          <div class="form-group">
+            <label for="city">Ville :</label>
+            <input type="text" id="city" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Adresse e-mail :</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">J'accepte les <a href="#terms-conditions" target="_blank">conditions générales</a> et la politique de confidentialité</label>
+          </div>
+          <button type="submit" class="submit-btn">S'inscrire</button>
+        </form>
+      </div>
+      <!-- Formulaire de connexion -->
+      <div id="loginForm" class="account-form">
+        <form id="userLoginForm">
+          <div class="form-group">
+            <label for="loginEmail">Adresse e-mail :</label>
+            <input type="email" id="loginEmail" name="loginEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Mot de passe :</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+          </div>
+          <button type="submit" class="submit-btn">Se connecter</button>
+        </form>
+      </div>
+    </section>
 
-<!-- Services -->
-<section class="service" data-service="boost">
-  <h2>1. Boostage sur les réseaux sociaux</h2>
-  <p>Boostez votre présence en ligne avec notre service de boostage sur les réseaux sociaux ! Choisissez votre commande ou personnalisez-la vous‑même via le bouton ci‑dessous. Nous vous aiderons à augmenter votre visibilité, vos followers, vos likes et vos partages sur les plateformes sociales de votre choix. Nos tarifs sont compétitifs et nos résultats sont garantis. Contactez‑nous pour en savoir plus !</p>
-  <a class="btn" href="https://wa.me/237699853665" target="_blank">Commander via WhatsApp</a>
-  <button class="btn btn-secondary toggle-form">Personnaliser la commande</button>
-  <div class="custom-order">
-    <label>Plateforme :
-      <select class="co-platform">
-        <option value="facebook">Facebook</option>
-        <option value="tiktok">TikTok</option>
-        <option value="instagram">Instagram</option>
-        <option value="youtube">YouTube</option>
-      </select>
-    </label>
-    <label>Service :
-      <select class="co-service"></select>
-    </label>
-    <label>Quantité :
-      <input type="number" class="co-quantity" placeholder="Ex. 1500">
-    </label>
-    <!-- Nouveau champ pour le lien -->
-    <label>Lien de la publication :
-      <input type="text" class="co-link" placeholder="Collez ici le lien de votre vidéo ou publication">
-    </label>
-    <p class="price-estimate"></p>
-    <button class="co-send">Acheter</button>
-  </div>
-</section>
+    <!-- Section Participants -->
+    <section id="participants">
+      <h2>Participants</h2>
+      <p>Découvrez les profils des participants :</p>
+      <div class="profile-card">
+        <h3>Artiste 1</h3>
+        <p>Nom d'artiste : Exemplar</p>
+        <p>Ville : Douala</p>
+      </div>
+      <div class="profile-card">
+        <h3>Artiste 2</h3>
+        <p>Nom d'artiste : Créatif</p>
+        <p>Ville : Yaoundé</p>
+      </div>
+    </section>
 
-<section class="service" data-service="tiktok">
-  <h2>2. Création de compte TikTok</h2>
-  <p>Créez un compte TikTok professionnel avec nous ! Pour créer votre compte, nous avons besoin de quelques informations : nom, prénom, date de naissance, nom de compte, e‑mail, téléphone… Remplissez le formulaire ci‑dessous et nous nous occupons de tout.</p>
-  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
-  <div class="custom-order">
-    <label>Prénom : <input type="text" class="co-firstname" placeholder="Prénom"></label>
-    <label>Nom : <input type="text" class="co-lastname" placeholder="Nom"></label>
-    <label>Date de naissance : <input type="date" class="co-dob"></label>
-    <label>Nom de compte : <input type="text" class="co-account" placeholder="Nom de compte"></label>
-    <label>E-mail : <input type="email" class="co-email" placeholder="E-mail"></label>
-    <label>Téléphone : <input type="tel" class="co-phone" placeholder="Téléphone"></label>
-    <label>Pays : <input type="text" class="co-country" placeholder="Pays"></label>
-    <button class="co-send">Commander maintenant</button>
-  </div>
-</section>
-
-<section class="service" data-service="fbpage">
-  <h2>3. Création de pages Facebook pro</h2>
-  <p>Créez une page Facebook professionnelle avec nous ! Les infos requises sont identiques à celles d’un compte TikTok : nom, prénom, date de naissance, nom de page, e‑mail, téléphone, pays…</p>
-  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
-  <div class="custom-order">
-    <label>Prénom : <input type="text" class="co-firstname" placeholder="Prénom"></label>
-    <label>Nom : <input type="text" class="co-lastname" placeholder="Nom"></label>
-    <label>Date de naissance : <input type="date" class="co-dob"></label>
-    <label>Nom de page : <input type="text" class="co-account" placeholder="Nom de page"></label>
-    <label>E-mail : <input type="email" class="co-email" placeholder="E-mail"></label>
-    <label>Téléphone : <input type="tel" class="co-phone" placeholder="Téléphone"></label>
-    <label>Pays : <input type="text" class="co-country" placeholder="Pays"></label>
-    <button class="co-send">Commander maintenant</button>
-  </div>
-</section>
-
-<section class="service" data-service="chanson">
-  <h2>4. Chanson personnalisée</h2>
-  <p>Commandez une chanson personnalisée pour un événement spécial ou pour faire plaisir à un proche ! Indiquez votre idée, le nom du destinataire et tous les détails souhaités.</p>
-  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
-  <div class="custom-order">
-    <label>Vos instructions :<br>
-      <textarea class="co-text" rows="4" placeholder="Décrivez votre chanson"></textarea>
-    </label>
-    <button class="co-send">Commander maintenant</button>
-  </div>
-</section>
-
-<section class="service" data-service="site">
-  <h2>5. Développement de sites web</h2>
-  <p>Créez un site web professionnel : vitrines, e‑commerce, responsive. Donnez-nous le nom du site, votre idée, une description, et nous nous occupons de tout.</p>
-  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
-  <div class="custom-order">
-    <label>Nom du site : <input type="text" class="co-text" placeholder="Nom du site"></label>
-    <label>Idée / objectif : <input type="text" class="co-text" placeholder="Idée / objectif"></label>
-    <label>Description :<br>
-      <textarea class="co-text" rows="3" placeholder="Description"></textarea>
-    </label>
-    <label>Autres infos :<br>
-      <textarea class="co-text" rows="2" placeholder="Informations complémentaires"></textarea>
-    </label>
-    <button class="co-send">Laisser une commande</button>
-  </div>
-</section>
-
-<section class="service" data-service="app">
-  <h2>6. Création d’applications mobiles</h2>
-  <p>Créez une application mobile sur mesure ! Donnez le nom, votre idée, une description, et toutes les infos nécessaires.</p>
-  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
-  <div class="custom-order">
-    <label>Nom de l’application : <input type="text" class="co-text" placeholder="Nom de l’application"></label>
-    <label>Idée / objectif : <input type="text" class="co-text" placeholder="Idée / objectif"></label>
-    <label>Description :<br>
-      <textarea class="co-text" rows="3" placeholder="Description"></textarea>
-    </label>
-    <label>Autres infos :<br>
-      <textarea class="co-text" rows="2" placeholder="Informations complémentaires"></textarea>
-    </label>
-    <button class="co-send">Laisser une commande</button>
-  </div>
-</section>
-
-<section class="service" data-service="logo">
-  <h2>7. Création de logos & flyers</h2>
-  <p>Concevez votre identité visuelle : logo, flyers, cartes, bannières. Donnez-nous le nom, votre idée, une description, et on s’en charge.</p>
-  <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
-  <div class="custom-order">
-    <label>Nom de la marque : <input type="text" class="co-text" placeholder="Nom de la marque"></label>
-    <label>Idée / objectif : <input type="text" class="co-text" placeholder="Idée / objectif"></label>
-    <label>Description :<br>
-      <textarea class="co-text" rows="3" placeholder="Description"></textarea>
-    </label>
-    <label>Autres infos :<br>
-      <textarea class="co-text" rows="2" placeholder="Informations complémentaires"></textarea>
-    </label>
-    <button class="co-send">Commander maintenant</button>
-  </div>
-</section>
-
-<section class="service" data-service="vpn">
-  <h2>8. Connexion gratuite grace au VPN</h2>
-  <p>Accédez à Internet gratuitement et en toute sécurité ! Choisissez connexion limitée ou illimitée, quantité en méga, et durée d’utilisation.</p>
-  <button class="btn btn-secondary toggle-form">Personaliser mon forfait</button>
-  <div class="custom-order">
-    <label>Type :
-      <select class="co-type">
-        <option value="illimité">Illimité</option>
-        <option value="limité">Limité</option>
-      </select>
-    </label>
-    <label>Quantité (Mo) :
-      <input type="number" class="co-quantity" placeholder="Ex. 5000">
-    </label>
-    <label>Durée (jours) :
-      <input type="number" class="co-days" placeholder="Ex. 30">
-    </label>
-    <button class="co-send">Acheter</button>
-  </div>
-</section>
-
-<!-- Section Tarifs -->
-<section id="tarifs">
-  <h2>Tarifs détaillés</h2>
-  <div class="tarif-grid">
-    <!-- Facebook -->
-    <div class="tarif-section"><h3>Facebook</h3>
-      <table>
-        <thead><tr><th>Service</th><th>Quantité</th><th>Prix (FCFA)</th></tr></thead>
+    <!-- Section Résultats -->
+    <section id="resultats">
+      <h2>Résultats</h2>
+      <p>Suivez l'évolution des votes :</p>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Nom d'artiste</th>
+            <th>Votes</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>Followers</td><td>1 000</td><td>2 100</td></tr>
-          <tr><td>Followers</td><td>5 000</td><td>9 500</td></tr>
-          <tr><td>Followers</td><td>10 000</td><td>19 200</td></tr>
-          <tr><td>Likes/Vues</td><td>1 000</td><td>1 500</td></tr>
-          <tr><td>Likes/Vues</td><td>5 000</td><td>6 500</td></tr>
-          <tr><td>Likes/Vues</td><td>10 000</td><td>11 500</td></tr>
-          <tr><td>J’aime page</td><td>1 000</td><td>2 800</td></tr>
-          <tr><td>J’aime page</td><td>5 000</td><td>7 000</td></tr>
-          <tr><td>J’aime page</td><td>10 000</td><td>11 000</td></tr>
-          <tr><td>Commentaires</td><td>10</td><td>850</td></tr>
-          <tr><td>Partages</td><td>1 000</td><td>800</td></tr>
-          <tr><td>Partages</td><td>5 000</td><td>4 000</td></tr>
-          <tr><td>Partages</td><td>10 000</td><td>9 000</td></tr>
-          <tr><td>Membres groupe</td><td>1 000</td><td>2 000</td></tr>
-          <tr><td>Membres groupe</td><td>5 000</td><td>9 000</td></tr>
+          <tr>
+            <td>1</td>
+            <td>Exemplar</td>
+            <td>1500</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Créatif</td>
+            <td>1200</td>
+          </tr>
         </tbody>
       </table>
-    </div>
-    <!-- TikTok -->
-    <div class="tarif-section"><h3>TikTok</h3>
-      <table>
-        <thead><tr><th>Service</th><th>Quantité</th><th>Prix (FCFA)</th></tr></thead>
-        <tbody>
-          <tr><td>Abonnés</td><td>1 000</td><td>2 500</td></tr>
-          <tr><td>Abonnés</td><td>2 000</td><td>5 000</td></tr>
-          <tr><td>Abonnés</td><td>5 000</td><td>9 500</td></tr>
-          <tr><td>Abonnés</td><td>10 000</td><td>19 500</td></tr>
-          <tr><td>Likes vidéo</td><td>1 000</td><td>1 000</td></tr>
-          <tr><td>Likes vidéo</td><td>5 000</td><td>4 500</td></tr>
-          <tr><td>Likes vidéo</td><td>10 000</td><td>8 000</td></tr>
-          <tr><td>Vues vidéo</td><td>1 000</td><td>800</td></tr>
-          <tr><td>Vues vidéo</td><td>5 000</td><td>3 500</td></tr>
-          <tr><td>Vues vidéo</td><td>10 000</td><td>5 000</td></tr>
-          <tr><td>Sauvegardes/Partages</td><td>1 000</td><td>500</td></tr>
-          <tr><td>Sauvegardes/Partages</td><td>5 000</td><td>2000</td></tr>
-          <tr><td>Sauvegardes/Partages</td><td>10 000</td><td>3500</td></tr>
-          <tr><td>Commentaires</td><td>10</td><td>500</td></tr>
-          <tr><td>Commentaires</td><td>1 000</td><td>5 000</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- Instagram -->
-    <div class="tarif-section"><h3>Instagram</h3>
-      <table>
-        <thead><tr><th>Service</th><th>Quantité</th><th>Prix (FCFA)</th></tr></thead>
-        <tbody>
-          <tr><td>Abonnés</td><td>1 000</td><td>2 500</td></tr>
-          <tr><td>Abonnés</td><td>2 000</td><td>5 000</td></tr>
-          <tr><td>Abonnés</td><td>5 000</td><td>9 500</td></tr>
-          <tr><td>Abonnés</td><td>10 000</td><td>19 500</td></tr>
-          <tr><td>Likes vidéo</td><td>1 000</td><td>1 000</td></tr>
-          <tr><td>Likes vidéo</td><td>5 000</td><td>4 500</td></tr>
-          <tr><td>Likes vidéo</td><td>10 000</td><td>8 000</td></tr>
-          <tr><td>Vues vidéo</td><td>1 000</td><td>500</td></tr>
-          <tr><td>Vues vidéo</td><td>5 000</td><td>2000</td></tr>
-          <tr><td>Vues vidéo</td><td>10 000</td><td>3000</td></tr>
-          <tr><td>Commentaires</td><td>10</td><td>300</td></tr>
-          <tr><td>Commentaires</td><td>1 000</td><td>3000</td></tr>
-          <tr><td>Vues story</td><td>1 000</td><td>500</td></tr>
-          <tr><td>Vues story</td><td>5 000</td><td>2000</td></tr>
-          <tr><td>Vues story</td><td>10 000</td><td>4000</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- YouTube -->
-    <div class="tarif-section"><h3>YouTube</h3>
-      <table>
-        <thead><tr><th>Service</th><th>Quantité</th><th>Prix (FCFA)</th></tr></thead>
-        <tbody>
-          <tr><td>Abonnés</td><td>1 000</td><td>5 000</td></tr>
-          <tr><td>Abonnés</td><td>2 000</td><td>9 500</td></tr>
-          <tr><td>Abonnés</td><td>5 000</td><td>24500</td></tr>
-          <tr><td>Abonnés</td><td>10 000</td><td>50000</td></tr>
-          <tr><td>Vues/J’aime</td><td>1 000</td><td>1500</td></tr>
-          <tr><td>Vues/J’aime</td><td>2 000</td><td>3000</td></tr>
-          <tr><td>Vues/J’aime</td><td>5 000</td><td>7000</td></tr>
-          <tr><td>Vues/J’aime</td><td>10 000</td><td>13500</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+    </section>
 
-  <!-- Bouton Personnaliser sous Tarifs -->
-  <div style="text-align:center; margin-top:15px;">
-    <button class="btn btn-secondary toggle-form" data-service="tarifs">
-      Personnaliser votre commande
-    </button>
-    <div class="custom-order">
-      <label>Plateforme :
-        <select class="co-platform">
-          <option value="facebook">Facebook</option>
-          <option value="tiktok">TikTok</option>
-          <option value="instagram">Instagram</option>
-          <option value="youtube">YouTube</option>
-        </select>
-      </label>
-      <label>Service :
-        <select class="co-service"></select>
-      </label>
-      <label>Quantité :
-        <input type="number" class="co-quantity" placeholder="Ex. 1500">
-      </label>
-      <!-- Nouveau champ pour le lien -->
-      <label>Lien de la publication :
-        <input type="text" class="co-link" placeholder="Collez ici le lien de votre vidéo ou publication">
-      </label>
-      <p class="price-estimate"></p>
-      <button class="co-send">Acheter</button>
-    </div>
-  </div>
-</section>
+    <!-- Section Contacts -->
+    <section id="contact">
+      <h2>Contacts</h2>
+      <div class="contact-details">
+        <p>Pour toute question, contactez-nous :</p>
+        <p>
+          Email : <a href="mailto:contact@cinexoproductions.com">contact@cinexoproductions.com</a><br>
+          WhatsApp : <a href="https://wa.me/237699853665" target="_blank">+237 699 85 36 65</a>
+        </p>
+      </div>
+    </section>
+  </main>
 
-<section id="inscription" class="form-container">
-  <h3 style="text-align:center;">Créer un compte ou se connecter</h3>
-  <form>
-    <input type="text" placeholder="Nom" required>
-    <input type="text" placeholder="Prénom" required>
-    <input type="email" placeholder="Adresse e-mail" required>
-    <input type="date" placeholder="Date de naissance" required>
-    <input type="text" placeholder="Pays" required>
-    <input type="password" placeholder="Mot de passe" required>
-    <button type="submit" class="btn-form">S'inscrire</button>
-  </form>
-  <form style="margin-top:20px;">
-    <input type="email" placeholder="Adresse e-mail" required>
-    <input type="password" placeholder="Mot de passe" required>
-    <button type="submit" class="btn-form">Se connecter</button>
-  </form>
-</section>
+  <!-- Footer complémentaire -->
+  <footer>
+    <p>&copy; 2025 Cinexo Productions. Tous droits réservés.</p>
+  </footer>
 
-<div class="testimonial">
-  <img src="img/IMG/Q4zoEmJGdQbADaJ3FFgW8.png" alt="Témoignage Social Boost Horizon">
-</div>
+  <script>
+    // Gestion des onglets pour la section Compte (Inscription / Connexion)
+    const tabRegister = document.getElementById('tabRegister');
+    const tabLogin = document.getElementById('tabLogin');
+    const registerForm = document.getElementById('registerForm');
+    const loginForm = document.getElementById('loginForm');
 
-<section>
-  <h2>Pourquoi choisir Social Boost Horizon ?</h2>
-  <ul>
-    <li>Expertise & professionnalisme</li>
-    <li>Approche personnalisée</li>
-    <li>Accompagnement complet</li>
-    <li>Résultats mesurables</li>
-    <li>Tarifs compétitifs</li>
-  </ul>
-</section>
-
-<footer>
-  <p>Suivez-nous :
-    <a href="https://www.facebook.com/profile.php?id=61574589563101&mibextid=wwXIfr">Facebook</a> |
-    <a href="https://www.tiktok.com/@mc.exau0">TikTok</a> |
-    <a href="https://www.instagram.com/mc.exau">Instagram</a>
-  </p>
-  <p>© 2025 Social Boost Horizon | par Napopolo Exaucé (Mč Exau)</p>
-</footer>
-
-<script>
-  // Définition des tarifs pour chaque plateforme et service
-  const pricingData = {
-    facebook: { 
-      "Followers": {1000:2100, 5000:9500, 10000:19200}, 
-      "Likes/Vues": {1000:1500, 5000:6500, 10000:11500}, 
-      "J’aime page": {1000:2800, 5000:7000, 10000:11000}, 
-      "Commentaires": {10:850}, 
-      "Partages": {1000:800, 5000:4000, 10000:9000}, 
-      "Membres groupe": {1000:2000, 5000:9000} 
-    },
-    tiktok: {    
-      "Abonnés": {1000:2500, 2000:5000, 5000:9500, 10000:19500}, 
-      "Likes vidéo": {1000:1000, 5000:4500, 10000:8000}, 
-      "Vues vidéo": {1000:800, 5000:3500, 10000:5000}, 
-      "Sauvegardes/Partages": {1000:500, 5000:2000, 10000:3500}, 
-      "Commentaires": {10:500, 1000:5000}
-    },
-    instagram: { 
-      "Abonnés": {1000:2500, 2000:5000, 5000:9500, 10000:19500}, 
-      "Likes vidéo": {1000:1000, 5000:4500, 10000:8000}, 
-      "Vues vidéo": {1000:500, 5000:2000, 10000:3000}, 
-      "Commentaires": {10:300, 1000:3000}, 
-      "Vues story": {1000:500, 5000:2000, 10000:4000} 
-    },
-    youtube: {   
-      "Abonnés": {1000:5000, 2000:9500, 5000:24500, 10000:50000}, 
-      "Vues/J’aime": {1000:1500, 2000:3000, 5000:7000, 10000:13500} 
-    }
-  };
-
-  // Initialisation des formulaires lors de l'appui sur les boutons "toggle-form"
-  document.querySelectorAll('.toggle-form').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const sec = btn.closest('section') || document.getElementById('tarifs');
-      const form = sec.querySelector('.custom-order');
-      form.style.display = (!form.style.display || form.style.display === 'none') ? 'block' : 'none';
-      // Pour les formulaires incluant plateforme, service, quantité (tarification automatique)
-      if (form.querySelector('.co-platform') && form.querySelector('.co-service') && form.querySelector('.co-quantity')) {
-        initBoostForm(form);
-      } else {
-        initGenericForm(form);
-      }
+    tabRegister.addEventListener('click', () => {
+      tabRegister.classList.add('active');
+      tabLogin.classList.remove('active');
+      registerForm.classList.add('active');
+      loginForm.classList.remove('active');
     });
-  });
 
-  // Fonction pour les formulaires avec estimation automatique (boost & tarifs)
-  function initBoostForm(form) {
-    const platSel = form.querySelector('.co-platform');
-    const servSel = form.querySelector('.co-service');
-    const qtyInp  = form.querySelector('.co-quantity');
-    const sendBtn = form.querySelector('.co-send');
-    const priceElem = form.querySelector('.price-estimate');
-
-    function updateServiceOptions() {
-      const p = platSel.value;
-      servSel.innerHTML = '';
-      Object.keys(pricingData[p]).forEach(service => {
-        servSel.add(new Option(service, service));
-      });
-    }
-    
-    function updatePriceEstimate() {
-      const platform = platSel.value;
-      const service = servSel.value;
-      const quantity = parseInt(qtyInp.value);
-      if (!quantity || !pricingData[platform] || !pricingData[platform][service] || !pricingData[platform][service][quantity]) {
-        priceElem.textContent = "Prix estimé: Non disponible pour cette quantité";
-      } else {
-        const price = pricingData[platform][service][quantity];
-        priceElem.textContent = "Prix estimé: " + price + " FCFA";
-      }
-    }
-    
-    platSel.addEventListener('change', () => {
-      updateServiceOptions();
-      updatePriceEstimate();
+    tabLogin.addEventListener('click', () => {
+      tabLogin.classList.add('active');
+      tabRegister.classList.remove('active');
+      loginForm.classList.add('active');
+      registerForm.classList.remove('active');
     });
-    
-    servSel.addEventListener('change', updatePriceEstimate);
-    qtyInp.addEventListener('input', updatePriceEstimate);
-    
-    updateServiceOptions();
-    updatePriceEstimate();
-    
-    sendBtn.onclick = () => {
-      const platform = platSel.value;
-      const service = servSel.value;
-      const quantity = qtyInp.value;
-      if (!quantity) return alert('Veuillez indiquer une quantité');
-      const price = pricingData[platform][service][quantity] || '–';
-      // Récupération de la valeur du champ lien
-      const linkInput = form.querySelector('.co-link');
-      const linkValue = linkInput ? linkInput.value.trim() : "";
-      let message = `Je commande ${quantity} ${service} sur ${platform} pour ${price} FCFA.`;
-      if(linkValue) {
-         message += `\nLien de la publication: ${linkValue}`;
-      }
-      window.open(`https://wa.me/237699853665?text=${encodeURIComponent(message)}`, '_blank');
-    };
-  }
 
-  // Fonction générique pour les formulaires sans estimation automatique
-  function initGenericForm(form) {
-    const sendBtn = form.querySelector('.co-send');
-    if (sendBtn.getAttribute('data-init') === "true") return;
-    sendBtn.setAttribute('data-init', "true");
-    sendBtn.onclick = () => {
-      const fields = form.querySelectorAll('input, textarea, select');
-      let message = "Nouvelle commande:\n";
-      fields.forEach(field => {
-        let label = "";
-        if (field.parentElement.tagName.toLowerCase() === 'label') {
-          label = field.parentElement.firstChild.textContent.trim();
-        } else {
-          label = field.placeholder || "";
-        }
-        message += label + ": " + field.value + "\n";
-      });
-      window.open(`https://wa.me/237699853665?text=${encodeURIComponent(message)}`, '_blank');
-    };
-  }
-
-  // Fonction de recherche sur la page
-  const sections = document.querySelectorAll('section, .banner, .testimonial');
-  document.getElementById('site-search').addEventListener('input', e => {
-    const q = e.target.value.toLowerCase();
-    sections.forEach(sec => {
-      sec.style.display = !q || sec.innerText.toLowerCase().includes(q) ? '' : 'none';
+    // Gestion du formulaire d'inscription
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Inscription enregistrée ! (Intégration backend à venir)");
     });
-  });
-</script>
-
+    // Gestion du formulaire de connexion
+    document.getElementById('userLoginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Connexion réussie ! (Intégration backend à venir)");
+    });
+  </script>
 </body>
 </html>
