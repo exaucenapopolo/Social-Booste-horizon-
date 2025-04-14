@@ -53,7 +53,8 @@
       flex-direction: column;
       gap: 4px;
       position: absolute;
-      right: 20px;
+      /* Bouton hamburger à gauche */
+      left: 20px;
       top: 20px;
     }
     .hamburger-btn span {
@@ -126,7 +127,7 @@
     <h1>SOCIAL BOOSTE HORIZON</h1>
     <input id="site-search" type="text" placeholder="Rechercher...">
   
-    <!-- Bouton hamburger pour mobile -->
+    <!-- Bouton hamburger (positionné à gauche) -->
     <button id="hamburger-btn" class="hamburger-btn" aria-label="Menu">
       <span></span>
       <span></span>
@@ -452,7 +453,6 @@
   <!-- Section Inscription / Connexion -->
   <section id="inscription" class="form-container">
     <h3 style="text-align:center;">Créer un compte ou se connecter</h3>
-    <!-- Ajout de l'id "registerForm" pour identifier le formulaire d'inscription -->
     <form id="registerForm">
       <input type="text" placeholder="Nom" required>
       <input type="text" placeholder="Prénom" required>
@@ -499,17 +499,17 @@
   <!-- Zone d'affichage pour la Realtime Database (test) -->
   <div id="output" style="background:#eee; padding:10px; margin-top:20px;"></div>
 
-  <!-- Script principal, chargé en mode module -->
+  <!-- Script JavaScript principal, chargé en mode module -->
   <script type="module">
     // Importer la configuration Firebase et l'instance d'authentification depuis firebase-config.js
     import { app, analytics, auth } from './firebase-config.js';
     console.log("Firebase initialisé :", app);
-
-    // Importer la Realtime Database (pour tests, comme avant)
+    
+    // Importer la Realtime Database (pour tests, comme dans votre version d'origine)
     import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
     const db = getDatabase(app);
 
-    // Test : écriture et lecture dans la DB
+    // Test : écriture et lecture dans la DB pour vérifier l'intégration
     function writeTestData() {
       set(ref(db, 'test/'), {
         message: "Bonjour depuis Firebase Realtime Database !",
@@ -541,7 +541,7 @@
           .then((userCredential) => {
             console.log("Utilisateur inscrit :", userCredential.user);
             alert("Inscription réussie !");
-            // Ici, vous pouvez rediriger l'utilisateur ou mettre à jour l'interface utilisateur pour afficher son profil.
+            // Vous pouvez mettre à jour l'interface ou rediriger ici
           })
           .catch((error) => {
             console.error("Erreur lors de l'inscription :", error);
@@ -576,7 +576,7 @@
       navMenu.style.display = (navMenu.style.display === 'block') ? 'none' : 'block';
     });
 
-    // Initialisation des formulaires de commande (toggle-form) et autres fonctionnalités existantes
+    // Initialisation des formulaires de commande (toggle-form)
     document.querySelectorAll('.toggle-form').forEach(btn => {
       btn.addEventListener('click', () => {
         const sec = btn.closest('section') || document.getElementById('tarifs');
