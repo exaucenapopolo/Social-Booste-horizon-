@@ -27,7 +27,9 @@
     .btn-secondary { background:#ffc107; color:#222; margin-left:10px; }
     .custom-order { display:none; margin-top:15px; padding:15px; border:1px solid #ddd; border-radius:5px; background:#fafafa; }
     .custom-order label { display:block; margin:8px 0; }
-    .custom-order input, .custom-order select, .custom-order textarea { width:100%; padding:5px; border:1px solid #ccc; border-radius:4px; }
+    .custom-order input, .custom-order select, .custom-order textarea {
+      width:100%; padding:5px; border:1px solid #ccc; border-radius:4px;
+    }
     .custom-order .co-send { margin-top:10px; background:#25D366; color:#fff; padding:8px 12px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; }
     .price-estimate { margin-top:10px; font-weight:bold; color:#047aed; }
     #tarifs .tarif-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
@@ -53,7 +55,7 @@
       flex-direction: column;
       gap: 4px;
       position: absolute;
-      /* Bouton hamburger à gauche */
+      /* Bouton hamburger positionné à gauche */
       left: 20px;
       top: 20px;
     }
@@ -127,7 +129,7 @@
     <h1>SOCIAL BOOSTE HORIZON</h1>
     <input id="site-search" type="text" placeholder="Rechercher...">
   
-    <!-- Bouton hamburger (positionné à gauche) -->
+    <!-- Bouton hamburger pour mobile (positionné à gauche) -->
     <button id="hamburger-btn" class="hamburger-btn" aria-label="Menu">
       <span></span>
       <span></span>
@@ -453,6 +455,7 @@
   <!-- Section Inscription / Connexion -->
   <section id="inscription" class="form-container">
     <h3 style="text-align:center;">Créer un compte ou se connecter</h3>
+    <!-- Pour l'instant, l'inscription se fait via le formulaire et la logique Firebase se trouve dans le script -->
     <form id="registerForm">
       <input type="text" placeholder="Nom" required>
       <input type="text" placeholder="Prénom" required>
@@ -499,17 +502,17 @@
   <!-- Zone d'affichage pour la Realtime Database (test) -->
   <div id="output" style="background:#eee; padding:10px; margin-top:20px;"></div>
 
-  <!-- Script JavaScript principal, chargé en mode module -->
+  <!-- Script principal, chargé en mode module -->
   <script type="module">
     // Importer la configuration Firebase et l'instance d'authentification depuis firebase-config.js
     import { app, analytics, auth } from './firebase-config.js';
     console.log("Firebase initialisé :", app);
     
-    // Importer la Realtime Database (pour tests, comme dans votre version d'origine)
+    // Importer la Realtime Database pour les tests (ceci n'affecte pas les autres fonctionnalités)
     import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
     const db = getDatabase(app);
 
-    // Test : écriture et lecture dans la DB pour vérifier l'intégration
+    // Test: écriture et lecture dans la DB pour s'assurer que Firebase fonctionne
     function writeTestData() {
       set(ref(db, 'test/'), {
         message: "Bonjour depuis Firebase Realtime Database !",
@@ -541,7 +544,7 @@
           .then((userCredential) => {
             console.log("Utilisateur inscrit :", userCredential.user);
             alert("Inscription réussie !");
-            // Vous pouvez mettre à jour l'interface ou rediriger ici
+            // Ici, tu peux rediriger l'utilisateur ou mettre à jour l'interface (par exemple afficher son profil)
           })
           .catch((error) => {
             console.error("Erreur lors de l'inscription :", error);
@@ -556,16 +559,16 @@
       document.getElementById('nav-menu').style.display = 'none';
     };
     window.showAccount = function() {
-      alert("Affichage des informations du compte (à implémenter)");
+      alert("Affichage des informations du compte (fonctionnalité à implémenter)");
       document.getElementById('nav-menu').style.display = 'none';
     };
     window.showOrders = function() {
-      alert("Affichage de vos commandes passées (à implémenter)");
+      alert("Affichage de vos commandes passées (fonctionnalité à implémenter)");
       document.getElementById('nav-menu').style.display = 'none';
     };
     window.confirmLogout = function() {
       if (confirm("Voulez-vous vraiment vous déconnecter ?")) {
-        alert("Déconnexion en cours (à implémenter)");
+        alert("Déconnexion en cours (fonctionnalité à implémenter)");
       }
       document.getElementById('nav-menu').style.display = 'none';
     };
@@ -703,6 +706,5 @@
       });
     });
   </script>
-
 </body>
 </html>

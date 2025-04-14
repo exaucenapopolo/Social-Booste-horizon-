@@ -4,10 +4,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// Remplace les valeurs ci-dessous par celles de ton projet Firebase
+// Configuration Firebase (clé API et autres informations)
+// Assure-toi d'utiliser des clés restreintes dans la console Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBvVXfiFmnIVEZzaugsxt43ov0YU7quIhY",
   authDomain: "monsiteweb-beaee.firebaseapp.com",
+  databaseURL: "https://monsiteweb-beaee-default-rtdb.firebaseio.com",
   projectId: "monsiteweb-beaee",
   storageBucket: "monsiteweb-beaee.firebasestorage.app",
   messagingSenderId: "847850292961",
