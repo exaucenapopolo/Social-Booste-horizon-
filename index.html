@@ -55,7 +55,6 @@
       flex-direction: column;
       gap: 4px;
       position: absolute;
-      /* Bouton hamburger positionné à gauche */
       left: 20px;
       top: 20px;
     }
@@ -67,10 +66,10 @@
       border-radius: 2px;
     }
     .nav-menu {
-      display: none; /* caché par défaut */
+      display: none;
       background-color: #047aed;
       position: absolute;
-      top: 70px; /* ajustez selon la hauteur du header */
+      top: 70px;
       right: 0;
       width: 200px;
       z-index: 1000;
@@ -97,26 +96,30 @@
     .nav-menu a:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
-    /* Sur écran large, le menu s'affiche en horizontal */
     @media (min-width: 768px) {
-      .hamburger-btn {
-        display: none;
-      }
+      .hamburger-btn { display: none; }
       .nav-menu {
         display: block;
         position: static;
         width: auto;
         background: transparent;
       }
-      .nav-menu ul {
-        display: flex;
-        gap: 15px;
-      }
-      .nav-menu a {
-        padding: 0;
-        color: #fff;
-      }
+      .nav-menu ul { display: flex; gap: 15px; }
+      .nav-menu a { padding: 0; color: #fff; }
     }
+    /* --- CSS pour la section Profil --- */
+    #profile-section {
+      display: none;
+      max-width: 500px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    #profile-section label { display: block; margin: 10px 0; }
+    #profile-section input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    #profile-section button { margin-top: 10px; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -128,8 +131,7 @@
     </div>
     <h1>SOCIAL BOOSTE HORIZON</h1>
     <input id="site-search" type="text" placeholder="Rechercher...">
-  
-    <!-- Bouton hamburger pour mobile (positionné à gauche) -->
+    <!-- Bouton hamburger pour mobile -->
     <button id="hamburger-btn" class="hamburger-btn" aria-label="Menu">
       <span></span>
       <span></span>
@@ -141,11 +143,11 @@
   <nav id="nav-menu" class="nav-menu">
     <ul>
       <li><a href="#top" onclick="scrollToTop();">Accueil</a></li>
-      <li><a href="#compte" onclick="showAccount();">Mon compte</a></li>
-      <li><a href="#commandes" onclick="showOrders();">Mes commandes</a></li>
+      <li><a href="#compte" onclick="alert('Affichage du compte (à implémenter)'); document.getElementById('nav-menu').style.display='none';">Mon compte</a></li>
+      <li><a href="#commandes" onclick="alert('Affichage des commandes (à implémenter)'); document.getElementById('nav-menu').style.display='none';">Mes commandes</a></li>
       <li><a href="#a-propos">À propos</a></li>
       <li><a href="#confidentialite">Confidentialité</a></li>
-      <li><a href="#deconnexion" onclick="confirmLogout();">Déconnexion</a></li>
+      <li><a href="#deconnexion" onclick="if(confirm('Voulez-vous vraiment vous déconnecter ?')) { logout(); } document.getElementById('nav-menu').style.display='none';">Déconnexion</a></li>
     </ul>
   </nav>
 
@@ -157,13 +159,13 @@
   <!-- Section Présentation -->
   <section id="presentation">
     <h2>Présentation</h2>
-    <p>Bienvenue chez <strong>Social Boost Horizon</strong>, votre partenaire de confiance pour le développement et l’optimisation de votre présence en ligne. Notre mission est d’accompagner les entreprises, les entrepreneurs et les particuliers dans leur stratégie digitale, afin d’accroître leur visibilité et leur notoriété sur l’ensemble des plateformes sociales.</p>
+    <p>Bienvenue chez <strong>Social Boost Horizon</strong>, votre partenaire de confiance pour le développement et l’optimisation de votre présence en ligne. Notre mission est d’accompagner entreprises, entrepreneurs et particuliers dans leur stratégie digitale.</p>
   </section>
 
   <!-- Services -->
   <section class="service" data-service="boost">
     <h2>1. Boostage sur les réseaux sociaux</h2>
-    <p>Boostez votre présence en ligne avec notre service de boostage sur les réseaux sociaux ! Choisissez votre commande ou personnalisez-la vous‑même via le bouton ci‑dessous. Nous vous aiderons à augmenter votre visibilité, vos followers, vos likes et vos partages sur les plateformes sociales de votre choix. Nos tarifs sont compétitifs et nos résultats sont garantis. Contactez‑nous pour en savoir plus !</p>
+    <p>Boostez votre présence en ligne avec notre service de boostage sur les réseaux sociaux ! Choisissez votre commande ou personnalisez-la vous‑même via le bouton ci‑dessous.</p>
     <a class="btn" href="https://wa.me/237699853665" target="_blank">Commander via WhatsApp</a>
     <button class="btn btn-secondary toggle-form">Personnaliser la commande</button>
     <div class="custom-order">
@@ -182,7 +184,7 @@
         <input type="number" class="co-quantity" placeholder="Ex. 1500">
       </label>
       <label>Lien de la publication :
-        <input type="text" class="co-link" placeholder="Collez ici le lien de votre vidéo ou publication">
+        <input type="text" class="co-link" placeholder="Collez ici le lien de votre publication">
       </label>
       <p class="price-estimate"></p>
       <button class="co-send">Acheter</button>
@@ -191,7 +193,7 @@
 
   <section class="service" data-service="tiktok">
     <h2>2. Création de compte TikTok</h2>
-    <p>Créez un compte TikTok professionnel avec nous ! Pour créer votre compte, nous avons besoin de quelques informations : nom, prénom, date de naissance, nom de compte, e‑mail, téléphone… Remplissez le formulaire ci‑dessous et nous nous occupons de tout.</p>
+    <p>Créez un compte TikTok professionnel avec nous ! Pour créer votre compte, nous avons besoin de quelques informations : nom, prénom, date de naissance, nom de compte, e‑mail, téléphone… Remplissez le formulaire ci‑dessous.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Prénom : <input type="text" class="co-firstname" placeholder="Prénom"></label>
@@ -423,7 +425,6 @@
         </table>
       </div>
     </div>
-    <!-- Bouton Personnaliser sous Tarifs -->
     <div style="text-align:center; margin-top:15px;">
       <button class="btn btn-secondary toggle-form" data-service="tarifs">
         Personnaliser votre commande
@@ -444,7 +445,7 @@
           <input type="number" class="co-quantity" placeholder="Ex. 1500">
         </label>
         <label>Lien de la publication :
-          <input type="text" class="co-link" placeholder="Collez ici le lien de votre vidéo ou publication">
+          <input type="text" class="co-link" placeholder="Collez ici le lien de votre publication">
         </label>
         <p class="price-estimate"></p>
         <button class="co-send">Acheter</button>
@@ -455,7 +456,6 @@
   <!-- Section Inscription / Connexion -->
   <section id="inscription" class="form-container">
     <h3 style="text-align:center;">Créer un compte ou se connecter</h3>
-    <!-- Pour l'instant, l'inscription se fait via le formulaire et la logique Firebase se trouve dans le script -->
     <form id="registerForm">
       <input type="text" placeholder="Nom" required>
       <input type="text" placeholder="Prénom" required>
@@ -472,13 +472,31 @@
     </form>
   </section>
 
+  <!-- Section Profil (pour modification du profil) -->
+  <section id="profile-section">
+    <h3>Mon Profil</h3>
+    <p id="user-email"></p>
+    <label>Nom :
+      <input type="text" id="profile-name" placeholder="Votre nom">
+    </label>
+    <label>Téléphone :
+      <input type="text" id="profile-phone" placeholder="Votre numéro">
+    </label>
+    <label>Image de profil :
+      <input type="file" id="profile-image">
+    </label>
+    <img id="profile-pic" src="" alt="Photo de profil" style="display:none; max-width:150px;">
+    <button id="updateProfileBtn" style="background:#047aed; color:#fff;">Mettre à jour mon profil</button>
+    <button id="logoutBtn" style="background:#ffc107; color:#222;">Déconnexion</button>
+  </section>
+
   <!-- Témoignage -->
   <div class="testimonial">
     <img src="img/IMG/Q4zoEmJGdQbADaJ3FFgW8.png" alt="Témoignage Social Boost Horizon">
   </div>
 
   <!-- Section Pourquoi choisir Social Boost Horizon -->
-  <section>
+  <section id="a-propos">
     <h2>Pourquoi choisir Social Boost Horizon ?</h2>
     <ul>
       <li>Expertise & professionnalisme</li>
@@ -502,27 +520,42 @@
   <!-- Zone d'affichage pour la Realtime Database (test) -->
   <div id="output" style="background:#eee; padding:10px; margin-top:20px;"></div>
 
-  <!-- Script principal, chargé en mode module -->
+  <!-- Script principal en mode module -->
   <script type="module">
-    // Importer la configuration Firebase et l'instance d'authentification depuis firebase-config.js
-    import { app, analytics, auth } from './firebase-config.js';
-    console.log("Firebase initialisé :", app);
-    
-    // Importer la Realtime Database pour les tests (ceci n'affecte pas les autres fonctionnalités)
-    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-    const db = getDatabase(app);
+    // Importation des modules Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
+    import { getDatabase, ref as dbRef, set as dbSet, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
-    // Test: écriture et lecture dans la DB pour s'assurer que Firebase fonctionne
+    // Configuration Firebase – à remplacer par vos clés
+    const firebaseConfig = {
+      apiKey: "TA_CLE_API",
+      authDomain: "TON_PROJET.firebaseapp.com",
+      projectId: "TON_PROJET",
+      storageBucket: "TON_PROJET.appspot.com",
+      messagingSenderId: "TON_SENDER_ID",
+      appId: "TON_APP_ID"
+    };
+
+    // Initialisation de Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const firestore = getFirestore(app);
+    const storage = getStorage(app);
+    const database = getDatabase(app);
+
+    // Test Realtime Database
     function writeTestData() {
-      set(ref(db, 'test/'), {
+      dbSet(dbRef(database, 'test/'), {
         message: "Bonjour depuis Firebase Realtime Database !",
         timestamp: Date.now()
-      })
-      .then(() => console.log("Écriture réussie"))
-      .catch((error) => console.error("Erreur lors de l'écriture:", error));
+      }).then(() => console.log("Écriture réussie"))
+        .catch((error) => console.error("Erreur lors de l'écriture:", error));
     }
     function readTestData() {
-      const testRef = ref(db, 'test/');
+      const testRef = dbRef(database, 'test/');
       onValue(testRef, (snapshot) => {
         const data = snapshot.val();
         console.log("Données lues:", data);
@@ -532,44 +565,138 @@
     writeTestData();
     readTestData();
 
-    // Gestion de l'inscription via Firebase Authentication
-    import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    // Gestion de l'inscription
     const registerForm = document.getElementById('registerForm');
     if(registerForm){
-      registerForm.addEventListener('submit', (e) => {
+      registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const email = registerForm.querySelector('input[type="email"]').value;
-        const password = registerForm.querySelector('input[type="password"]').value;
-        createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            console.log("Utilisateur inscrit :", userCredential.user);
-            alert("Inscription réussie !");
-            // Ici, tu peux rediriger l'utilisateur ou mettre à jour l'interface (par exemple afficher son profil)
-          })
-          .catch((error) => {
-            console.error("Erreur lors de l'inscription :", error);
-            alert("Erreur lors de l'inscription : " + error.message);
+        const inputs = registerForm.querySelectorAll('input');
+        // Ici, on suppose que l’e-mail est le 3ème champ et le mot de passe le 6ème
+        const email = inputs[2].value;
+        const password = inputs[5].value;
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          console.log("Utilisateur inscrit :", userCredential.user);
+          // Création du document utilisateur dans Firestore
+          await setDoc(doc(firestore, "users", userCredential.user.uid), {
+            email: email,
+            name: "",
+            phone: "",
+            profileImageUrl: ""
           });
+          alert("Inscription réussie !");
+        } catch (error) {
+          console.error("Erreur lors de l'inscription :", error);
+          alert("Erreur lors de l'inscription : " + error.message);
+        }
       });
     }
 
-    // Fonctions utilitaires pour le menu de navigation
+    // Gestion de la connexion
+    const loginForm = document.getElementById('loginForm');
+    if(loginForm){
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = loginForm.querySelector('input[type="email"]').value;
+        const password = loginForm.querySelector('input[type="password"]').value;
+        try {
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          console.log("Utilisateur connecté :", userCredential.user);
+          alert("Connexion réussie !");
+        } catch(error) {
+          console.error("Erreur lors de la connexion :", error);
+          alert("Erreur lors de la connexion : " + error.message);
+        }
+      });
+    }
+
+    // Affichage du profil
+    async function showProfile(user) {
+      // Masquer le formulaire d'inscription/connexion
+      const inscriptionSection = document.getElementById('inscription');
+      if(inscriptionSection) inscriptionSection.style.display = "none";
+      // Afficher la section profil
+      const profileSection = document.getElementById('profile-section');
+      profileSection.style.display = "block";
+      document.getElementById('user-email').textContent = `Connecté en tant que : ${user.email}`;
+      // Récupérer les données utilisateur depuis Firestore
+      const docRef = doc(firestore, "users", user.uid);
+      const docSnap = await getDoc(docRef);
+      if(docSnap.exists()){
+        const data = docSnap.data();
+        document.getElementById('profile-name').value = data.name || "";
+        document.getElementById('profile-phone').value = data.phone || "";
+        if(data.profileImageUrl){
+          const img = document.getElementById('profile-pic');
+          img.src = data.profileImageUrl;
+          img.style.display = "block";
+        }
+      }
+    }
+
+    // Mise à jour du profil
+    async function updateProfile() {
+      const user = auth.currentUser;
+      if(!user) return alert("Aucun utilisateur connecté !");
+      const name = document.getElementById('profile-name').value;
+      const phone = document.getElementById('profile-phone').value;
+      const imageFile = document.getElementById('profile-image').files[0];
+      const userDocRef = doc(firestore, "users", user.uid);
+      try {
+        if(imageFile){
+          const imageRef = ref(storage, `profileImages/${user.uid}.jpg`);
+          const snapshot = await uploadBytes(imageRef, imageFile);
+          const downloadURL = await getDownloadURL(snapshot.ref);
+          await updateDoc(userDocRef, {
+            name: name,
+            phone: phone,
+            profileImageUrl: downloadURL
+          });
+          alert("Profil mis à jour avec image !");
+        } else {
+          await updateDoc(userDocRef, {
+            name: name,
+            phone: phone
+          });
+          alert("Profil mis à jour !");
+        }
+        showProfile(user);
+      } catch(error) {
+        console.error("Erreur lors de la mise à jour du profil :", error);
+        alert("Erreur lors de la mise à jour du profil : " + error.message);
+      }
+    }
+
+    // Déconnexion
+    async function logout() {
+      try {
+        await signOut(auth);
+        document.getElementById('profile-section').style.display = "none";
+        document.getElementById('inscription').style.display = "block";
+        alert("Déconnecté !");
+      } catch(error) {
+        console.error("Erreur lors de la déconnexion :", error);
+        alert("Erreur lors de la déconnexion : " + error.message);
+      }
+    }
+
+    // Attacher les actions aux boutons du profil
+    document.getElementById('updateProfileBtn').addEventListener('click', updateProfile);
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+
+    // Écouteur d'état d'authentification
+    onAuthStateChanged(auth, (user) => {
+      if(user){
+        showProfile(user);
+      } else {
+        document.getElementById('inscription').style.display = "block";
+        document.getElementById('profile-section').style.display = "none";
+      }
+    });
+
+    // Fonctions utilitaires pour le menu et la recherche
     window.scrollToTop = function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      document.getElementById('nav-menu').style.display = 'none';
-    };
-    window.showAccount = function() {
-      alert("Affichage des informations du compte (fonctionnalité à implémenter)");
-      document.getElementById('nav-menu').style.display = 'none';
-    };
-    window.showOrders = function() {
-      alert("Affichage de vos commandes passées (fonctionnalité à implémenter)");
-      document.getElementById('nav-menu').style.display = 'none';
-    };
-    window.confirmLogout = function() {
-      if (confirm("Voulez-vous vraiment vous déconnecter ?")) {
-        alert("Déconnexion en cours (fonctionnalité à implémenter)");
-      }
       document.getElementById('nav-menu').style.display = 'none';
     };
 
@@ -641,7 +768,7 @@
         const linkValue = linkInput ? linkInput.value.trim() : "";
         let message = `Je commande ${quantity} ${service} sur ${platform} pour ${price} FCFA.`;
         if(linkValue) {
-           message += `\nLien de la publication: ${linkValue}`;
+          message += `\nLien de la publication: ${linkValue}`;
         }
         window.open(`https://wa.me/237699853665?text=${encodeURIComponent(message)}`, '_blank');
       };
@@ -667,7 +794,7 @@
       };
     }
 
-    // Définition des tarifs pour chaque plateforme et service
+    // Tarification
     const pricingData = {
       facebook: { 
         "Followers": {1000:2100, 5000:9500, 10000:19200}, 
@@ -697,7 +824,7 @@
       }
     };
 
-    // Fonction de recherche sur la page
+    // Recherche sur la page
     const sections = document.querySelectorAll('section, .banner, .testimonial');
     document.getElementById('site-search').addEventListener('input', e => {
       const q = e.target.value.toLowerCase();
