@@ -1,11 +1,10 @@
 // firebase-config.js
 
-// Importez les fonctions nécessaires depuis le CDN Firebase (version 9)
-// Vous pouvez ajouter d'autres services Firebase si besoin
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// Votre configuration Firebase (veillez à ne pas partager ces données publiquement)
+// Remplace les valeurs ci-dessous par celles de ton projet Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBvVXfiFmnIVEZzaugsxt43ov0YU7quIhY",
   authDomain: "monsiteweb-beaee.firebaseapp.com",
@@ -16,9 +15,8 @@ const firebaseConfig = {
   measurementId: "G-DW73C4ZD0T"
 };
 
-// Initialisation de Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
-// Exportez l'instance Firebase pour pouvoir l'utiliser dans d'autres modules
-export { app, analytics };
+export { app, analytics, auth };
