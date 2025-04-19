@@ -2,91 +2,91 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>SOCIAL BOOSTE HORIZON</title>
+  <title>Social Boost Horizon</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    /* ===== Styles généraux ===== */
-    body { font-family:Arial,sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
-    header { background:#047aed; color:#fff; padding:20px; position:relative; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; }
+    /* ===== GLOBAL ===== */
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; }
+
+    /* ===== HEADER ===== */
+    header { background:#047aed; color:#fff; padding:20px; display:flex; align-items:center; justify-content:center; position:relative; }
     .logo img { height:50px; margin-right:15px; }
     h1 { margin:0; font-size:1.8rem; }
-    #site-search { margin-top:15px; width:80%; max-width:300px; padding:8px; border-radius:4px; border:none; }
-    section { padding:20px; max-width:1000px; margin:20px auto; background:#fff; border-radius:8px; }
-    h2 { color:#047aed; border-bottom:2px solid #047aed; padding-bottom:5px; }
-    .btn { display:inline-block; margin-top:10px; background:#25D366; color:#fff; padding:10px 15px; text-decoration:none; border-radius:5px; font-weight:bold; cursor:pointer; }
-    .btn-secondary { background:#ffc107; color:#222; margin-left:10px; }
-    .form-container input, .form-container select, .form-container button { width:100%; padding:10px; margin:8px 0; border-radius:4px; border:1px solid #ccc; }
-    .form-container .btn-form { background:#047aed; color:#fff; border:none; cursor:pointer; }
-    .banner img { width:100%; height:60vh; object-fit:cover; display:block; }
-    .testimonial img { width:100%; max-width:800px; margin:30px auto; display:block; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    footer { background:#222; color:#fff; text-align:center; padding:20px; }
-    footer a { color:#00ffcc; text-decoration:none; margin:0 10px; }
+    #site-search { margin-left:20px; padding:8px; border:none; border-radius:4px; width:200px; }
 
-    /* ===== Menu hamburger ===== */
-    .hamburger-btn { background:none; border:none; cursor:pointer; display:flex; flex-direction:column; gap:4px; position:absolute; left:20px; top:20px; }
+    /* ===== MENU HAMBURGER ===== */
+    .hamburger-btn { position:absolute; left:20px; top:20px; background:none; border:none; display:flex; flex-direction:column; gap:4px; }
     .hamburger-btn span { width:25px; height:3px; background:#fff; border-radius:2px; }
-    .nav-menu { display:none; background:#047aed; position:absolute; top:70px; right:0; width:200px; border-radius:0 0 5px 5px; z-index:1000; }
+    .nav-menu { display:none; position:absolute; top:70px; right:0; background:#047aed; border-radius:0 0 5px 5px; width:200px; z-index:1000; }
     .nav-menu ul { list-style:none; margin:0; padding:0; }
     .nav-menu li { border-bottom:1px solid rgba(255,255,255,0.2); }
     .nav-menu li:last-child { border-bottom:none; }
-    .nav-menu a { display:block; padding:10px 15px; color:#fff; text-decoration:none; font-weight:bold; }
+    .nav-menu a { display:block; padding:10px 15px; color:#fff; }
     .nav-menu a:hover { background:rgba(255,255,255,0.2); }
     @media(min-width:768px){
       .hamburger-btn { display:none; }
-      .nav-menu { display:block; position:static; width:auto; background:transparent; }
+      .nav-menu { display:block !important; position:static; width:auto; background:transparent; }
       .nav-menu ul { display:flex; gap:15px; }
       .nav-menu a { padding:0; }
     }
 
-    /* ===== Custom order ===== */
+    /* ===== BANNIÈRE ===== */
+    .banner img { width:100%; height:60vh; object-fit:cover; display:block; }
+
+    /* ===== SECTION ===== */
+    section { background:#fff; max-width:1000px; margin:20px auto; padding:20px; border-radius:8px; }
+    h2 { color:#047aed; border-bottom:2px solid #047aed; padding-bottom:5px; }
+    p { margin:10px 0; }
+
+    /* ===== BOUTONS ===== */
+    .btn { display:inline-block; margin-top:10px; padding:10px 15px; background:#25D366; color:#fff; border:none; border-radius:5px; font-weight:bold; }
+    .btn-secondary { background:#ffc107; color:#222; margin-left:10px; }
+
+    /* ===== FORMULAIRES DE COMMANDE ===== */
     .custom-order { display:none; margin-top:15px; padding:15px; border:1px solid #ddd; border-radius:5px; background:#fafafa; }
     .custom-order label { display:block; margin:8px 0; }
-    .custom-order input, .custom-order select, .custom-order textarea { width:100%; padding:5px; border:1px solid #ccc; border-radius:4px; }
-    .custom-order .co-send { margin-top:10px; background:#25D366; color:#fff; padding:8px 12px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; }
+    .custom-order select, .custom-order input, .custom-order textarea { width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; }
     .price-estimate { margin-top:10px; font-weight:bold; color:#047aed; }
 
-    /* ===== Tarifs ===== */
+    /* ===== TARIFS ===== */
     #tarifs .tarif-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
-    .tarif-section { padding:15px; border:1px solid #ddd; border-radius:5px; background:#fff; }
+    .tarif-section { padding:15px; background:#fff; border:1px solid #ddd; border-radius:5px; }
     .tarif-section h3 { color:#047aed; margin-bottom:10px; }
     .tarif-section table { width:100%; border-collapse:collapse; }
     .tarif-section th, .tarif-section td { border:1px solid #ddd; padding:8px; text-align:center; }
     .tarif-section th { background:#f4f4f4; }
 
-    /* ===== Profil, Commandes, Assistance ===== */
-    #profile-page, #orders-page, #assistance-page { display:none; max-width:800px; margin:20px auto; background:#fff; padding:20px; border:1px solid #ddd; border-radius:8px; }
-    #profile-page img { display:block; margin:0 auto 20px; border-radius:50%; width:120px; height:120px; object-fit:cover; background:#eee; }
-    #profile-page .info { margin-bottom:10px; }
-    #profile-page .info span:first-child { font-weight:bold; }
-    #profile-page .edit-form { display:none; margin-top:20px; }
-    #profile-page .edit-form label { display:block; margin:8px 0; }
+    /* ===== MES COMMANDES ===== */
+    #mesCommandes .commande { background:#fafafa; padding:10px; margin:10px 0; border-left:4px solid #047aed; }
 
-    #orders-page table { width:100%; border-collapse:collapse; }
-    #orders-page th, #orders-page td { border:1px solid #ddd; padding:8px; text-align:left; }
-    #orders-page th { background:#f4f4f4; }
+    /* ===== ASSISTANCE ===== */
+    #assistance textarea { width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; }
+    #assistance .btn { margin-right:10px; }
 
-    #assistance-page textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; }
-    #assistance-page .assist-btn { margin-top:10px; display:inline-block; background:#047aed; color:#fff; padding:10px 15px; border:none; border-radius:5px; cursor:pointer; text-decoration:none; }
+    /* ===== À PROPOS ===== */
+    #apropos button { margin-top:10px; }
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header id="top">
-    <div class="logo"><img src="img/IMG/39AE1E0B-E163-4DC8-8A83-FF931C7D8BF3.jpeg" alt="Logo"></div>
-    <h1>SOCIAL BOOSTE HORIZON</h1>
-    <input id="site-search" type="text" placeholder="Rechercher...">
     <button id="hamburger-btn" class="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="logo"><img src="img/IMG/39AE1E0B-E163-4DC8-8A83-FF931C7D8BF3.jpeg" alt="Logo"></div>
+    <h1>Social Boost Horizon</h1>
+    <input id="site-search" type="text" placeholder="Rechercher...">
   </header>
 
-  <!-- MENU HAMBURGER -->
+  <!-- NAVIGATION -->
   <nav id="nav-menu" class="nav-menu">
     <ul>
-      <li><a href="#" onclick="openHome();closeMenu()">Accueil</a></li>
-      <li><a href="#" onclick="openProfile();closeMenu()">Mon profil</a></li>
-      <li><a href="#" onclick="openOrders();closeMenu()">Mes commandes</a></li>
-      <li><a href="#" onclick="openAssistance();closeMenu()">Assistance</a></li>
-      <li><a href="#" onclick="document.getElementById('a-propos').scrollIntoView({behavior:'smooth'});closeMenu()">À propos</a></li>
+      <li><a href="#" onclick="scrollHome();closeMenu()">Accueil</a></li>
+      <li><a href="#" onclick="document.getElementById('mesCommandes').scrollIntoView({behavior:'smooth'});closeMenu()">Mes commandes</a></li>
+      <li><a href="#" onclick="document.getElementById('apropos').scrollIntoView({behavior:'smooth'});closeMenu()">À propos</a></li>
+      <li><a href="#" onclick="document.getElementById('assistance').scrollIntoView({behavior:'smooth'});closeMenu()">Assistance</a></li>
     </ul>
   </nav>
 
@@ -98,135 +98,136 @@
   <!-- PRÉSENTATION -->
   <section id="presentation">
     <h2>Présentation</h2>
-    <p>Bienvenue chez <strong>Social Boost Horizon</strong>, votre partenaire de confiance pour développer votre présence en ligne sur toutes les plateformes sociales.</p>
+    <p>Bienvenue chez <strong>Social Boost Horizon</strong>, votre partenaire pour développer votre présence en ligne sur Facebook, Instagram, TikTok et YouTube.</p>
   </section>
 
-  <!-- 1. Boost sur les réseaux sociaux -->
+  <!-- SERVICES 1-8 -->
+  <!-- 1. Boost réseaux sociaux -->
   <section class="service" data-service="boost">
     <h2>1. Boost sur les réseaux sociaux</h2>
-    <p>Boostez votre présence en ligne: followers, likes, vues, partages et commentaires sur Facebook, TikTok, Instagram et YouTube.</p>
-    <a class="btn" href="https://wa.me/237699853665" target="_blank">Commander via WhatsApp</a>
+    <p>Followers, likes, vues, partages, commentaires : augmentez votre audience en un clic.</p>
     <button class="btn btn-secondary toggle-form">Personnaliser la commande</button>
     <div class="custom-order">
       <label>Plateforme :
         <select class="co-platform">
-          <option value="facebook">Facebook</option>
-          <option value="tiktok">TikTok</option>
-          <option value="instagram">Instagram</option>
-          <option value="youtube">YouTube</option>
+          <option value="">Sélectionner</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Instagram">Instagram</option>
+          <option value="TikTok">TikTok</option>
+          <option value="YouTube">YouTube</option>
         </select>
       </label>
       <label>Service :
-        <select class="co-service"></select>
+        <select class="co-service"><option value="">Sélectionner</option></select>
       </label>
       <label>Quantité :
-        <input type="number" class="co-quantity" placeholder="Ex. 1000">
+        <input type="number" class="co-quantity" placeholder="Ex : 1000">
       </label>
       <label>Lien (facultatif) :
         <input type="text" class="co-link" placeholder="Lien de la publication">
       </label>
       <p class="price-estimate"></p>
-      <button class="co-send">Acheter</button>
+      <button class="co-send btn">Enregistrer & Commander via WhatsApp</button>
     </div>
   </section>
 
-  <!-- 2. Création de compte TikTok -->
+  <!-- 2. TikTok -->
   <section class="service" data-service="tiktok">
     <h2>2. Création de compte TikTok</h2>
-    <p>Nous créons et optimisons votre compte TikTok professionnel pour un démarrage en fanfare !</p>
+    <p>Compte professionnel complet avec bio optimisée.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Prénom : <input type="text" class="co-firstname"></label>
       <label>Nom : <input type="text" class="co-lastname"></label>
       <label>Date de naissance : <input type="date" class="co-dob"></label>
       <label>Nom de compte : <input type="text" class="co-account"></label>
-      <label>E‑mail : <input type="email" class="co-email"></label>
+      <label>Email : <input type="email" class="co-email"></label>
       <label>Téléphone : <input type="tel" class="co-phone"></label>
       <label>Pays : <input type="text" class="co-country"></label>
-      <button class="co-send">Acheter</button>
+      <button class="co-send btn">Enregistrer & Commander via WhatsApp</button>
     </div>
   </section>
 
-  <!-- 3. Création de page Facebook pro -->
+  <!-- 3. Facebook page -->
   <section class="service" data-service="fbpage">
-    <h2>3. Création de pages Facebook pro</h2>
-    <p>Page professionnelle complète avec logo, description et réglages de confidentialité personnalisés.</p>
+    <h2>3. Création de page Facebook pro</h2>
+    <p>Page complète avec logo, description, réglages et visuels.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Prénom : <input type="text" class="co-firstname"></label>
       <label>Nom : <input type="text" class="co-lastname"></label>
       <label>Date de naissance : <input type="date" class="co-dob"></label>
       <label>Nom de page : <input type="text" class="co-account"></label>
-      <label>E‑mail : <input type="email" class="co-email"></label>
+      <label>Email : <input type="email" class="co-email"></label>
       <label>Téléphone : <input type="tel" class="co-phone"></label>
       <label>Pays : <input type="text" class="co-country"></label>
-      <button class="co-send">Acheter</button>
+      <button class="co-send btn">Enregistrer & Commander via WhatsApp</button>
     </div>
   </section>
 
-  <!-- 4. Chanson personnalisée -->
+  <!-- 4. Chanson -->
   <section class="service" data-service="chanson">
     <h2>4. Chanson personnalisée</h2>
-    <p>Un compositeur professionnel crée une chanson unique selon vos instructions.</p>
+    <p>Compositeur pro pour un morceau unique dédié.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Instructions :<br><textarea class="co-text" rows="4"></textarea></label>
-      <button class="co-send">Acheter</button>
+      <button class="co-send btn">Enregistrer & Commander via WhatsApp</button>
     </div>
   </section>
 
-  <!-- 5. Développement de sites web -->
+  <!-- 5. Site web -->
   <section class="service" data-service="site">
     <h2>5. Développement de sites web</h2>
-    <p>Vitrine, e‑commerce ou sur mesure : nous réalisons votre site responsive et SEO-friendly.</p>
+    <p>Vitrine, e‑commerce ou sur mesure, 100% responsive.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Nom du site : <input type="text" class="co-text"></label>
       <label>Objectif : <input type="text" class="co-text"></label>
       <label>Description :<br><textarea class="co-text" rows="3"></textarea></label>
       <label>Compléments :<br><textarea class="co-text" rows="2"></textarea></label>
-      <button class="co-send">Acheter</button>
+      <button class="co-send btn">Enregistrer & Commander via WhatsApp</button>
     </div>
   </section>
 
-  <!-- 6. Création d’applications mobiles -->
+  <!-- 6. Application mobile -->
   <section class="service" data-service="app">
     <h2>6. Création d’applications mobiles</h2>
-    <p>iOS, Android ou multiplateforme : développez votre application sur mesure.</p>
+    <p>iOS, Android ou multiplateforme, sur mesure.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Nom : <input type="text" class="co-text"></label>
       <label>Objectif : <input type="text" class="co-text"></label>
       <label>Description :<br><textarea class="co-text" rows="3"></textarea></label>
       <label>Compléments :<br><textarea class="co-text" rows="2"></textarea></label>
-      <button class="co-send">Acheter</button>
+      <button class="co-send btn">Enregistrer & Commander via WhatsApp</button>
     </div>
   </section>
 
-  <!-- 7. Création de logos & flyers -->
+  <!-- 7. Logos & flyers -->
   <section class="service" data-service="logo">
     <h2>7. Création de logos & flyers</h2>
-    <p>Identité visuelle complète : logo, flyers, cartes et bannières.</p>
+    <p>Identité visuelle complète, création graphique pro.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Marque : <input type="text" class="co-text"></label>
       <label>Objectif : <input type="text" class="co-text"></label>
       <label>Description :<br><textarea class="co-text" rows="3"></textarea></label>
       <label>Compléments :<br><textarea class="co-text" rows="2"></textarea></label>
-      <button class="co-send">Acheter</button>
+      <button class="co-send btn">Enregistrer & Commander via WhatsApp</button>
     </div>
   </section>
 
   <!-- 8. VPN -->
   <section class="service" data-service="vpn">
     <h2>8. VPN</h2>
-    <p>Connexion sécurisée et anonyme : illimitée ou limitée.</p>
+    <p>Navigation sécurisée, illimitée ou à la carte.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Type : <select class="co-type"><option>Illimité</option><option>Limité</option></select></label>
       <label>Quantité (Mo) : <input type="number" class="co-quantity"></label>
       <label>Durée (jours) : <input type="number" class="co-days"></label>
-      <button class="co-send">Acheter</button>
+      <button class="co-send btn">Enregistrer & Commander via WhatsApp</button>
     </div>
   </section>
 
@@ -324,361 +325,155 @@
         </table>
       </div>
     </div>
-
-    <!-- Personnaliser sous tarifs -->
-    <div style="text-align:center; margin-top:15px;">
-      <button class="btn btn-secondary toggle-form">Personnaliser votre commande</button>
-      <div class="custom-order">
-        <label>Plateforme :
-          <select class="co-platform">
-            <option value="facebook">Facebook</option>
-            <option value="tiktok">TikTok</option>
-            <option value="instagram">Instagram</option>
-            <option value="youtube">YouTube</option>
-          </select>
-        </label>
-        <label>Service :
-          <select class="co-service"></select>
-        </label>
-        <label>Quantité :
-          <input type="number" class="co-quantity" placeholder="Ex. 1500">
-        </label>
-        <label>Lien :
-          <input type="text" class="co-link" placeholder="Lien (facultatif)">
-        </label>
-        <p class="price-estimate"></p>
-        <button class="co-send">Acheter</button>
-      </div>
-    </div>
   </section>
 
-  <!-- INSCRIPTION / CONNEXION -->
-  <section id="inscription" class="form-container">
-    <h3 style="text-align:center;">Créer un compte ou se connecter</h3>
-    <form id="registerForm">
-      <input type="text" placeholder="Nom" required>
-      <input type="text" placeholder="Prénom" required>
-      <input type="email" placeholder="Adresse e‑mail" required>
-      <input type="date" placeholder="Date de naissance" required>
-      <input type="text" placeholder="Pays" required>
-      <input type="password" placeholder="Mot de passe" required>
-      <button type="submit" class="btn-form">S'inscrire</button>
-    </form>
-    <form id="loginForm" style="margin-top:20px;">
-      <input type="email" placeholder="E‑mail" required>
-      <input type="password" placeholder="Mot de passe" required>
-      <button type="submit" class="btn-form">Se connecter</button>
-    </form>
-  </section>
-
-  <!-- PAGE MON PROFIL -->
-  <div id="profile-page">
-    <img id="profile-pic-default" src="img/IMG/default-avatar.png" alt="Avatar">
-    <div class="info"><span>Nom :</span> <span id="info-name"></span></div>
-    <div class="info"><span>E‑mail :</span> <span id="info-email"></span></div>
-    <button id="btn-edit-profile" class="btn-secondary">Modifier mon profil</button>
-    <form id="edit-profile-form" class="edit-form">
-      <label>Nom : <input type="text" id="profile-name"></label>
-      <label>Téléphone : <input type="text" id="profile-phone"></label>
-      <label>Photo : <input type="file" id="profile-image"></label>
-      <button type="button" id="save-profile" class="btn">Enregistrer</button>
-      <button type="button" id="cancel-edit" class="btn-secondary">Annuler</button>
-    </form>
-  </div>
-
-  <!-- PAGE MES COMMANDES -->
-  <div id="orders-page">
+  <!-- MES COMMANDES -->
+  <section id="mesCommandes">
     <h2>Mes commandes</h2>
-    <table id="orders-table">
-      <thead><tr><th>Date</th><th>Heure</th><th>Plateforme</th><th>Service</th><th>Quantité</th><th>Lien</th><th>Payé</th></tr></thead>
-      <tbody></tbody>
-    </table>
-  </div>
+    <div id="listeCommandes"></div>
+  </section>
 
-  <!-- PAGE ASSISTANCE -->
-  <div id="assistance-page">
+  <!-- ASSISTANCE -->
+  <section id="assistance">
     <h2>Assistance</h2>
-    <p>Contactez-nous via WhatsApp ou par e‑mail :</p>
-    <textarea id="assist-message" rows="4" placeholder="Votre message…"></textarea><br>
-    <button id="assist-whatsapp" class="assist-btn">Envoyer sur WhatsApp</button>
-    <button id="assist-email"     class="assist-btn">Envoyer par e‑mail</button>
-  </div>
+    <p>Besoin d’aide ?</p>
+    <textarea id="assist-message" rows="4" placeholder="Votre message..." style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;"></textarea><br>
+    <button class="btn" onclick="sendAssistWhatsApp()">WhatsApp</button>
+    <button class="btn" onclick="sendAssistEmail()">E‑mail</button>
+  </section>
 
   <!-- À PROPOS -->
-  <section id="a-propos">
-    <h2>Pourquoi choisir Social Boost Horizon ?</h2>
+  <section id="apropos">
+    <h2>Pourquoi choisir Social Boost Horizon&nbsp;?</h2>
     <ul>
-      <li>Expertise & professionnalisme</li>
-      <li>Approche personnalisée</li>
-      <li>Accompagnement complet</li>
-      <li>Résultats mesurables</li>
+      <li>Expertise & professionnelle</li>
+      <li>Approche entièrement personnalisée</li>
+      <li>Accompagnement du début à la fin</li>
+      <li>Résultats rapides et mesurables</li>
       <li>Tarifs compétitifs</li>
     </ul>
-    <button id="back-to-top" class="btn">Retour en haut</button>
+    <button class="btn" onclick="scrollHome()">Retour en haut</button>
   </section>
+
+  <!-- TÉMOIGNAGE -->
+  <div class="testimonial">
+    <img src="img/IMG/Q4zoEmJGdQbADaJ3FFgW8.png" alt="Témoignage client">
+  </div>
 
   <!-- FOOTER -->
   <footer>
     <p>Suivez-nous :
-      <a href="https://www.facebook.com/profile.php?id=61574589563101" target="_blank">Facebook</a> |
-      <a href="https://www.tiktok.com/@mc.exau0"           target="_blank">TikTok</a> |
-      <a href="https://www.instagram.com/mc.exau"          target="_blank">Instagram</a> |
-      <a href="mailto:contact@socialboostehorizon.com">contact@socialboostehorizon.com</a>
+      <a href="https://www.facebook.com/tonpage" target="_blank">Facebook</a> |
+      <a href="https://www.tiktok.com/toncompte" target="_blank">TikTok</a> |
+      <a href="https://www.instagram.com/toncompte" target="_blank">Instagram</a>
     </p>
     <p>© 2025 Social Boost Horizon | Napopolo Exaucé</p>
   </footer>
 
-  <!-- SCRIPT PRINCIPAL (module) -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-    import { getAnalytics }    from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
-    import {
-      getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-    import {
-      getFirestore, doc, setDoc, getDoc, updateDoc,
-      collection, addDoc, query, where, orderBy, getDocs
-    } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
-    import {
-      getStorage, ref, uploadBytes, getDownloadURL
-    } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-storage.js";
-
-    // === Config Firebase ===
-    const firebaseConfig = {
-      apiKey:            "AIzaSyBvVXfiFmnIVEZzaugsxt43ov0YU7quIhY",
-      authDomain:        "monsiteweb-beaee.firebaseapp.com",
-      databaseURL:       "https://monsiteweb-beaee-default-rtdb.firebaseio.com",
-      projectId:         "monsiteweb-beaee",
-      storageBucket:     "monsiteweb-beaee.appspot.com",
-      messagingSenderId: "847850292961",
-      appId:             "1:847850292961:web:fab966f77e3a512cc119a0",
-      measurementId:     "G-4FD3J9HRSQ"
-    };
-    const app       = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth      = getAuth(app);
-    const db        = getFirestore(app);
-    const storage   = getStorage(app);
-
-    // === Helpers navigation ===
+  <!-- JS -->
+  <script>
+    // ===== NAVIGATION =====
     function closeMenu(){ document.getElementById('nav-menu').style.display='none'; }
-    function hideAll(){
-      document.querySelectorAll('section, .banner, .testimonial').forEach(el=>el.style.display='none');
-      ['inscription','profile-page','orders-page','assistance-page'].forEach(id=>{
-        document.getElementById(id).style.display='none';
-      });
-    }
-    function openHome(){
-      hideAll();
-      window.scrollTo({top:0,behavior:'smooth'});
-      document.querySelectorAll('section, .banner, .testimonial').forEach(el=>el.style.display='block');
-      if(!auth.currentUser) document.getElementById('inscription').style.display='block';
-    }
-    window.openHome = openHome;
     document.getElementById('hamburger-btn').onclick = ()=>{
       const m = document.getElementById('nav-menu');
       m.style.display = m.style.display==='block'?'none':'block';
     };
+    function scrollHome(){ window.scrollTo({top:0,behavior:'smooth'}); }
 
-    // === Auth state ===
-    onAuthStateChanged(auth, user=>{
-      openHome();
-    });
-
-    // === Inscription & Connexion ===
-    document.getElementById('registerForm').addEventListener('submit', async e=>{
-      e.preventDefault();
-      const f = e.target.elements;
-      try {
-        const uc = await createUserWithEmailAndPassword(auth, f[2].value, f[5].value);
-        await setDoc(doc(db,'users',uc.user.uid),{ email:f[2].value,name:"",phone:"",profileImageUrl:"" });
-        alert("Inscription réussie");
-      } catch(err){ alert("Erreur inscription: "+err.message); }
-    });
-    document.getElementById('loginForm').addEventListener('submit', async e=>{
-      e.preventDefault();
-      const f = e.target.elements;
-      try {
-        await signInWithEmailAndPassword(auth,f[0].value,f[1].value);
-        alert("Connexion réussie");
-      } catch(err){ alert("Erreur connexion: "+err.message); }
-    });
-
-    // === Profil ===
-    async function loadProfile(){
-      const user = auth.currentUser;
-      if(!user) return alert("Connectez-vous d'abord");
-      const snap = await getDoc(doc(db,'users',user.uid));
-      document.getElementById('info-name').textContent = snap.data()?.name||"";
-      document.getElementById('info-email').textContent= user.email;
-      if(snap.data()?.profileImageUrl){
-        document.getElementById('profile-pic-default').src = snap.data().profileImageUrl;
-      }
-    }
-    function openProfile(){
-      hideAll();
-      document.getElementById('profile-page').style.display='block';
-      loadProfile();
-    }
-    window.openProfile = openProfile;
-    document.getElementById('btn-edit-profile').onclick = ()=>document.getElementById('edit-profile-form').style.display='block';
-    document.getElementById('cancel-edit').onclick      = ()=>document.getElementById('edit-profile-form').style.display='none';
-    document.getElementById('save-profile').onclick     = async ()=>{
-      const user = auth.currentUser;
-      if(!user) return alert("Non connecté");
-      const name  = document.getElementById('profile-name').value;
-      const phone = document.getElementById('profile-phone').value;
-      const file  = document.getElementById('profile-image').files[0];
-      const udoc  = doc(db,'users',user.uid);
-      try {
-        if(file){
-          const r   = ref(storage,`profileImages/${user.uid}.jpg`);
-          const up  = await uploadBytes(r,file);
-          const url = await getDownloadURL(up.ref);
-          await updateDoc(udoc,{ name,phone,profileImageUrl:url });
-        } else {
-          await updateDoc(udoc,{ name,phone });
-        }
-        alert("Profil mis à jour");
-        document.getElementById('edit-profile-form').style.display='none';
-        loadProfile();
-      } catch(err){ alert("Erreur maj: "+err.message); }
-    };
-
-    // === Mes commandes ===
-    window.openOrders = async ()=>{
-      const user = auth.currentUser;
-      if(!user) return alert("Connectez-vous d'abord");
-      hideAll();
-      document.getElementById('orders-page').style.display='block';
-      const q = query(collection(db,'orders'),where('userId','==',user.uid),orderBy('timestamp','desc'));
-      const snap = await getDocs(q);
-      const tbody = document.getElementById('orders-table').querySelector('tbody');
-      tbody.innerHTML='';
-      snap.forEach(docSnap=>{
-        const d = docSnap.data(), dt = new Date(d.timestamp);
-        tbody.insertAdjacentHTML('beforeend',`
-          <tr>
-            <td>${dt.toLocaleDateString()}</td><td>${dt.toLocaleTimeString()}</td>
-            <td>${d.platform}</td><td>${d.service}</td>
-            <td>${d.quantity}</td><td><a href="${d.link||'#'}" target="_blank">Lien</a></td>
-            <td>${d.paid}</td>
-          </tr>`);
-      });
-    };
-
-    // === Pricing data ===
-    const pricingData = {
-      facebook: { "Followers":{1000:2100,5000:9500,10000:19200}, "Likes/Vues":{1000:1500,5000:6500,10000:11500}, "J’aime page":{1000:2800,5000:7000,10000:11000}, "Commentaires":{10:850}, "Partages":{1000:800,5000:4000,10000:9000}, "Membres groupe":{1000:2000,5000:9000} },
-      tiktok:   { "Abonnés":{1000:2500,2000:5000,5000:9500,10000:19500}, "Likes vidéo":{1000:1000,5000:4500,10000:8000}, "Vues vidéo":{1000:800,5000:3500,10000:5000}, "Sauvegardes/Partages":{1000:500,5000:2000,10000:3500}, "Commentaires":{10:500,1000:5000} },
-      instagram:{ "Abonnés":{1000:2500,2000:5000,5000:9500,10000:19500}, "Likes vidéo":{1000:1000,5000:4500,10000:8000}, "Vues vidéo":{1000:500,5000:2000,10000:3000}, "Commentaires":{10:300,1000:3000}, "Vues story":{1000:500,5000:2000,10000:4000} },
-      youtube:  { "Abonnés":{1000:5000,2000:9500,5000:24500,10000:50000}, "Vues/J’aime":{1000:1500,2000:3000,5000:7000,10000:13500} }
-    };
-
-    // === Init forms ===
-    document.addEventListener('DOMContentLoaded',()=>{
-      document.querySelectorAll('.toggle-form').forEach(btn=>{
-        btn.onclick = ()=>{
-          let form = btn.closest('section')?.querySelector('.custom-order');
-          if(!form) form = document.querySelector('#tarifs .custom-order');
-          form.style.display = form.style.display==='block'?'none':'block';
-          if(form.querySelector('.co-platform')) initBoostForm(form);
-          else initGenericForm(form);
-        };
-      });
-      document.getElementById('back-to-top').onclick = ()=>openHome();
-    });
-
-    // === initBoostForm ===
-    async function initBoostForm(form){
-      const platSel = form.querySelector('.co-platform');
-      const servSel = form.querySelector('.co-service');
-      const qtyInp  = form.querySelector('.co-quantity');
-      const linkInp = form.querySelector('.co-link');
-      const priceEl = form.querySelector('.price-estimate');
-      const btn     = form.querySelector('.co-send');
-      function updateServiceOptions(){
-        const p = platSel.value;
-        servSel.innerHTML = '';
-        Object.keys(pricingData[p]||{}).forEach(s=>servSel.add(new Option(s,s)));
-      }
-      function updatePrice(){
-        const p=platSel.value, s=servSel.value, q=parseInt(qtyInp.value,10);
-        const pr=(pricingData[p]||{})[s]?.[q];
-        priceEl.textContent = pr?`Prix estimé : ${pr} FCFA`:'Quantité indisponible';
-      }
-      platSel.onchange = ()=>{ updateServiceOptions(); updatePrice(); };
-      servSel.onchange = updatePrice;
-      qtyInp.oninput   = updatePrice;
-      updateServiceOptions(); updatePrice();
-
-      btn.onclick = async ()=>{
-        const user=auth.currentUser;
-        if(!user) return alert('Vous devez être connecté.');
-        if(!qtyInp.value) return alert('Veuillez indiquer une quantité.');
-        const data = {
-          userId:user.uid,
-          platform:platSel.value,
-          service:servSel.value,
-          quantity:parseInt(qtyInp.value,10),
-          link:linkInp?.value||'',
-          timestamp:Date.now(),
-          paid:'Non Payé'
-        };
-        const msg = `Commande ${data.quantity} ${data.service} sur ${data.platform}${data.link?`\nLien: ${data.link}`:''}`;
-        if(confirm('Enregistrer cette commande ?')){
-          await addDoc(collection(db,'orders'),data);
-          alert('Commande enregistrée !');
-        }
-        window.open(`https://wa.me/237699853665?text=${encodeURIComponent(msg)}`,'_blank');
-      };
-    }
-
-    // === initGenericForm ===
-    async function initGenericForm(form){
-      const btn = form.querySelector('.co-send');
-      if(btn.dataset.init==='true') return;
-      btn.dataset.init='true';
-      btn.onclick = async ()=>{
-        const user=auth.currentUser;
-        if(!user) return alert('Vous devez être connecté.');
-        let data={ userId:user.uid, timestamp:Date.now(), paid:'Non Payé' }, msg='Nouvelle commande:\n';
-        form.querySelectorAll('input,textarea,select').forEach(f=>{
-          const label = f.parentElement.tagName==='LABEL'
-            ? f.parentElement.firstChild.textContent.trim()
-            : f.placeholder||'';
-          data[label.replace(/\s+/g,'_').toLowerCase()] = f.value;
-          msg += `${label}: ${f.value}\n`;
-        });
-        if(confirm('Enregistrer cette commande ?')){
-          await addDoc(collection(db,'orders'),data);
-          alert('Commande enregistrée !');
-        }
-        window.open(`https://wa.me/237699853665?text=${encodeURIComponent(msg)}`,'_blank');
-      };
-    }
-
-    // === Assistance ===
-    function openAssistance(){
-      hideAll();
-      document.getElementById('assistance-page').style.display='block';
-    }
-    window.openAssistance = openAssistance;
-    document.getElementById('assist-whatsapp').onclick = ()=>{
-      const m=document.getElementById('assist-message').value;
-      window.open(`https://wa.me/237699853665?text=${encodeURIComponent(m)}`,'_blank');
-    };
-    document.getElementById('assist-email').onclick = ()=>{
-      const m=encodeURIComponent(document.getElementById('assist-message').value);
-      window.location.href=`mailto:contact@socialboostehorizon.com?subject=Assistance&body=${m}`;
-    };
-
-    // === Recherche en direct ===
+    // ===== RECHERCHE =====
     document.getElementById('site-search').oninput = e=>{
-      const q=e.target.value.toLowerCase();
-      document.querySelectorAll('section, .banner, .testimonial').forEach(el=>
-        el.style.display=!q||el.innerText.toLowerCase().includes(q)?'':'none'
-      );
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll('section, .banner, .testimonial').forEach(el=>{
+        el.style.display = (!q || el.innerText.toLowerCase().includes(q)) ? '' : 'none';
+      });
+    };
+
+    // ===== COMMANDE LOGIC =====
+    const PRICE_UNIT = 5; // FCFA par unité
+    document.querySelectorAll('.toggle-form').forEach(btn=>{
+      btn.onclick = ()=>{
+        const f = btn.nextElementSibling;
+        f.style.display = f.style.display==='block'?'none':'block';
+        initForm(f);
+      };
+    });
+
+    function initForm(form){
+      if(form.dataset.inited) return;
+      form.dataset.inited = 'true';
+
+      const plat = form.querySelector('.co-platform');
+      const serv = form.querySelector('.co-service');
+      const qty  = form.querySelector('.co-quantity');
+      const link = form.querySelector('.co-link');
+      const priceEl = form.querySelector('.price-estimate');
+      const sendBtn = form.querySelector('.co-send');
+
+      // remplir services au changement de plateforme
+      if(plat && serv){
+        plat.onchange = ()=> {
+          serv.innerHTML = '<option value="">Sélectionner</option>';
+          ['Followers','Abonnés','Likes','Vues','Commentaires','Partages','Membres groupe'].forEach(s=>{
+            serv.add(new Option(s,s));
+          });
+          updatePrice();
+        };
+      }
+
+      function updatePrice(){
+        const qv = parseInt(qty.value||0,10);
+        priceEl.textContent = qv>0 ? `Prix estimé : ${qv*PRICE_UNIT} FCFA` : '';
+      }
+      qty && (qty.oninput = updatePrice);
+
+      sendBtn.onclick = ()=>{
+        const p = plat?.value||'';
+        const s = serv?.value||'';
+        const qv= qty?.value||'';
+        const pr= priceEl.textContent||'';
+        const lk= link?.value||'';
+        if(!p||!s||!qv||!pr) return alert('Remplis plateforme, service, quantité et estimation.');
+        if(!confirm('Enregistrer et passer sur WhatsApp ?')) return;
+        // sauvegarde
+        const arr = JSON.parse(localStorage.getItem('commandes')||'[]');
+        arr.push({ plateforme:p, service:s, quantite:qv, prix:pr, lien:lk });
+        localStorage.setItem('commandes', JSON.stringify(arr));
+        renderOrders();
+        // WhatsApp
+        let msg = `Nouvelle commande :%0APlateforme : ${p}%0AService : ${s}%0AQuantité : ${qv}%0APrix : ${pr}`;
+        if(lk) msg+=`%0ALien : ${lk}`;
+        window.location.href = `https://wa.me/237699853665?text=${msg}`;
+      };
+    }
+
+    function renderOrders(){
+      const arr = JSON.parse(localStorage.getItem('commandes')||'[]');
+      const cont = document.getElementById('listeCommandes');
+      cont.innerHTML = '';
+      arr.forEach((c,i)=>{
+        cont.innerHTML += `<div class="commande">
+          <strong>Commande ${i+1}</strong><br>
+          ${c.plateforme} – ${c.service} – ${c.quantite} – ${c.prix}
+          ${c.lien?`<br><small>Lien : <a href="${c.lien}" target="_blank">${c.lien}</a></small>`:''}
+        </div>`;
+      });
+    }
+
+    // ===== ASSISTANCE =====
+    function sendAssistWhatsApp(){
+      const m = document.getElementById('assist-message').value;
+      if(!m) return alert('Écris un message.');
+      window.open(`https://wa.me/237699853665?text=${encodeURIComponent(m)}`,'_blank');
+    }
+    function sendAssistEmail(){
+      const m = encodeURIComponent(document.getElementById('assist-message').value);
+      window.location.href = `mailto:contact@socialboostehorizon.com?subject=Assistance&body=${m}`;
+    }
+
+    // ===== INIT =====
+    window.onload = ()=>{
+      renderOrders();
+      scrollHome();
     };
   </script>
 </body>
