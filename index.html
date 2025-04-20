@@ -6,47 +6,53 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
     /* ===== GLOBAL ===== */
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:Arial,sans-serif; background:#f4f4f4; color:#333; }
-    a { color:inherit; text-decoration:none; }
-    button { cursor:pointer; }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; }
 
     /* ===== HEADER ===== */
     header {
-      background:#047aed; color:#fff;
-      display:flex; align-items:center; justify-content:center;
-      padding:20px; position:relative;
+      background: #047aed; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px; position: relative;
     }
-    .logo img { height:50px; margin-right:15px; }
-    h1 { font-size:1.8rem; }
-    #site-search { margin-left:20px; padding:8px; border:none; border-radius:4px; width:200px; }
+    .logo img { height: 50px; margin-right: 15px; }
+    h1 { font-size: 1.8rem; }
+    #site-search {
+      margin-left: 20px;
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      width: 200px;
+    }
 
     /* ===== MENU HAMBURGER ===== */
     .hamburger-btn {
-      position:absolute; left:20px; top:20px;
-      background:none; border:none;
-      display:flex; flex-direction:column; gap:4px;
+      position: absolute; left: 20px; top: 20px;
+      background: none; border: none; display: flex; flex-direction: column; gap: 4px;
     }
     .hamburger-btn span {
-      width:25px; height:3px; background:#fff; border-radius:2px;
+      width: 25px; height: 3px; background: #fff; border-radius: 2px;
     }
     .nav-menu {
-      display:none; position:absolute; top:70px; right:0;
-      background:#047aed; border-radius:0 0 5px 5px;
-      width:200px; z-index:1000;
+      display: none;
+      position: absolute; top: 70px; right: 0;
+      background: #047aed; border-radius: 0 0 5px 5px;
+      width: 200px; z-index: 1000;
     }
-    .nav-menu ul { list-style:none; }
-    .nav-menu li { border-bottom:1px solid rgba(255,255,255,0.2); }
-    .nav-menu li:last-child { border-bottom:none; }
+    .nav-menu ul { list-style: none; }
+    .nav-menu li { border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .nav-menu li:last-child { border-bottom: none; }
     .nav-menu a {
-      display:block; padding:10px 15px; color:#fff;
+      display: block; padding: 10px 15px; color: #fff;
     }
-    .nav-menu a:hover { background:rgba(255,255,255,0.2); }
-    @media(min-width:768px){
-      .hamburger-btn { display:none; }
-      .nav-menu { display:block!important; position:static; width:auto; background:transparent; }
-      .nav-menu ul { display:flex; gap:15px; }
-      .nav-menu a { padding:0; }
+    .nav-menu a:hover { background: rgba(255,255,255,0.2); }
+    @media(min-width:768px) {
+      .hamburger-btn { display: none; }
+      .nav-menu { display: block !important; position: static; width: auto; background: transparent; }
+      .nav-menu ul { display: flex; gap: 15px; }
+      .nav-menu a { padding: 0; }
     }
 
     /* ===== BANNIÈRE ===== */
@@ -56,91 +62,101 @@
 
     /* ===== SECTIONS ===== */
     section {
-      background:#fff; max-width:1000px;
-      margin:20px auto; padding:20px; border-radius:8px;
+      background: #fff;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
     }
     h2 {
-      color:#047aed; border-bottom:2px solid #047aed;
-      padding-bottom:5px; margin-bottom:15px;
+      color: #047aed;
+      border-bottom: 2px solid #047aed;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
     }
-    p { margin:10px 0; }
+    p { margin: 10px 0; }
 
     /* ===== BOUTONS ===== */
     .btn {
-      display:inline-block; margin-top:10px;
-      padding:10px 15px; background:#25D366; color:#fff;
-      border:none; border-radius:5px; font-weight:bold;
+      display: inline-block; margin-top: 10px;
+      padding: 10px 15px;
+      background: #25D366; color: #fff;
+      border: none; border-radius: 5px; font-weight: bold;
     }
     .btn-secondary {
-      background:#ffc107; color:#222; margin-left:10px;
+      background: #ffc107; color: #222; margin-left: 10px;
     }
 
     /* ===== FORMULAIRES DE COMMANDE ===== */
     .custom-order {
-      display:none; margin-top:15px;
-      padding:15px; border:1px solid #ddd;
-      border-radius:5px; background:#fafafa;
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #fafafa;
     }
     .custom-order label {
-      display:block; margin:8px 0;
+      display: block; margin: 8px 0;
     }
     .custom-order select,
     .custom-order input,
     .custom-order textarea {
-      width:100%; padding:8px;
-      border:1px solid #ccc; border-radius:4px;
+      width: 100%; padding: 8px;
+      border: 1px solid #ccc; border-radius: 4px;
     }
     .price-estimate {
-      margin-top:10px; font-weight:bold; color:#047aed;
+      margin-top: 10px; font-weight: bold; color: #047aed;
     }
 
     /* ===== TARIFS ===== */
     #tarifs .tarif-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
     }
     .tarif-section {
-      padding:15px; background:#fff;
-      border:1px solid #ddd; border-radius:5px;
+      padding: 15px; background: #fff;
+      border: 1px solid #ddd; border-radius: 5px;
     }
-    .tarif-section h3 { margin-bottom:10px; color:#047aed; }
+    .tarif-section h3 { margin-bottom: 10px; }
     .tarif-section table {
-      width:100%; border-collapse:collapse;
+      width: 100%; border-collapse: collapse;
     }
     .tarif-section th,
     .tarif-section td {
-      border:1px solid #ddd; padding:8px; text-align:center;
+      border: 1px solid #ddd; padding: 8px; text-align: center;
     }
-    .tarif-section th { background:#f4f4f4; }
+    .tarif-section th { background: #f4f4f4; }
 
-    /* ===== MON PROFIL ===== */
-    #profile { display:none; }
+    /* ===== PROFIL ===== */
+    #profile {
+      display: none;
+    }
     #profile img {
-      width:120px; height:120px; border-radius:50%;
-      object-fit:cover; display:block; margin:0 auto 15px;
+      width: 120px; height:120px; border-radius:50%;
+      object-fit:cover; display:block; margin: 0 auto 15px;
     }
     #profile input, #profile button {
-      width:100%; padding:10px; margin:8px 0;
-      border:1px solid #ccc; border-radius:4px;
+      width: 100%; padding: 10px; margin: 8px 0;
+      border: 1px solid #ccc; border-radius: 4px;
     }
-    #profile button { background:#047aed; color:#fff; border:none; }
+    #profile button { background: #047aed; color: #fff; border: none; }
 
     /* ===== MES COMMANDES ===== */
     #mesCommandes .commande {
-      background:#fafafa; padding:10px; margin:10px 0;
-      border-left:4px solid #047aed;
+      background: #fafafa; padding: 10px; margin: 10px 0;
+      border-left: 4px solid #047aed;
     }
 
     /* ===== ASSISTANCE ===== */
     #assistance textarea {
-      width:100%; padding:8px;
-      border:1px solid #ccc; border-radius:4px;
+      width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;
     }
-    #assistance .btn { margin-right:10px; }
+    #assistance .btn { margin-right: 10px; }
 
     /* ===== À PROPOS ===== */
-    #apropos button { margin-top:10px; }
+    #apropos button { margin-top: 10px; }
 
     /* ===== TÉMOIGNAGE ===== */
     .testimonial img {
@@ -157,12 +173,14 @@
     <button id="hamburger-btn" class="hamburger-btn" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-    <div class="logo"><img src="img/logo.jpg" alt="Logo"></div>
+    <div class="logo">
+      <img src="img/IMG/39AE1E0B-E163-4DC8-8A83-FF931C7D8BF3.jpeg" alt="Logo">
+    </div>
     <h1>Social Boost Horizon</h1>
     <input id="site-search" type="text" placeholder="Rechercher...">
   </header>
 
-  <!-- NAV -->
+  <!-- MENU -->
   <nav id="nav-menu" class="nav-menu">
     <ul>
       <li><a href="#" onclick="showSection('home')">Accueil</a></li>
@@ -173,36 +191,38 @@
     </ul>
   </nav>
 
-  <!-- ACCUEIL -->
-  <div id="home">
-    <div class="banner"><img src="img/banner.jpg" alt="Bannière"></div>
-    <section id="presentation">
-      <h2>Présentation</h2>
-      <p>Bienvenue chez <strong>Social Boost Horizon</strong>, votre partenaire pour développer votre présence en ligne.</p>
-    </section>
+  <!-- BANNIÈRE -->
+  <div class="banner" id="home">
+    <img src="img/IMG/FE46B6BE-0C90-4D5B-8932-3C22932C3C21.jpeg" alt="Bannière">
   </div>
 
-  <!-- 1. BOOST -->
-  <section class="service" data-service="boost">
+  <!-- PRÉSENTATION -->
+  <section id="presentation" class="section">
+    <h2>Présentation</h2>
+    <p>Bienvenue chez <strong>Social Boost Horizon</strong>, votre partenaire pour développer votre présence en ligne.</p>
+  </section>
+
+  <!-- SECTION “BOOST” -->
+  <section class="section service" data-service="boost">
     <h2>1. Boost sur les réseaux sociaux</h2>
-    <p>Followers, likes, vues, partages, commentaires : gagnez en visibilité.</p>
+    <p>Followers, likes, vues, partages, commentaires : augmentez votre audience en un clic.</p>
     <a class="btn" href="https://wa.me/237699853665" target="_blank">Commander via WhatsApp</a>
     <button class="btn btn-secondary toggle-form">Personnaliser la commande</button>
     <div class="custom-order">
       <label>Plateforme :
         <select class="co-platform">
           <option value="">Sélectionner</option>
-          <option value="facebook">Facebook</option>
-          <option value="instagram">Instagram</option>
-          <option value="tiktok">TikTok</option>
-          <option value="youtube">YouTube</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Instagram">Instagram</option>
+          <option value="TikTok">TikTok</option>
+          <option value="YouTube">YouTube</option>
         </select>
       </label>
       <label>Service :
         <select class="co-service"><option value="">Sélectionner</option></select>
       </label>
       <label>Quantité :
-        <input type="number" class="co-quantity" placeholder="Ex : 1000">
+        <input type="number" class="co-quantity" placeholder="Ex : 1000">
       </label>
       <label>Lien (facultatif) :
         <input type="text" class="co-link" placeholder="Lien de la publication">
@@ -213,7 +233,7 @@
   </section>
 
   <!-- 2. TikTok -->
-  <section class="service" data-service="tiktok">
+  <section class="section service" data-service="tiktok">
     <h2>2. Création de compte TikTok</h2>
     <p>Compte professionnel complet, bio optimisée.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
@@ -229,10 +249,10 @@
     </div>
   </section>
 
-  <!-- 3. Facebook page -->
-  <section class="service" data-service="fbpage">
-    <h2>3. Création de page Facebook pro</h2>
-    <p>Page complète, logo, description et visuels.</p>
+  <!-- 3. Facebook -->
+  <section class="section service" data-service="fbpage">
+    <h2>3. Création de pages Facebook pro</h2>
+    <p>Page complète, logo, description, visuels et réglages.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Prénom : <input type="text" class="co-firstname"></label>
@@ -247,7 +267,7 @@
   </section>
 
   <!-- 4. Chanson -->
-  <section class="service" data-service="chanson">
+  <section class="section service" data-service="chanson">
     <h2>4. Chanson personnalisée</h2>
     <p>Compositeur pro pour un morceau unique.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
@@ -258,7 +278,7 @@
   </section>
 
   <!-- 5. Site web -->
-  <section class="service" data-service="site">
+  <section class="section service" data-service="site">
     <h2>5. Développement de sites web</h2>
     <p>Vitrine, e‑commerce, sur mesure, responsive.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
@@ -272,7 +292,7 @@
   </section>
 
   <!-- 6. App mobile -->
-  <section class="service" data-service="app">
+  <section class="section service" data-service="app">
     <h2>6. Création d’applications mobiles</h2>
     <p>iOS, Android ou multiplateforme.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
@@ -286,9 +306,9 @@
   </section>
 
   <!-- 7. Logos & flyers -->
-  <section class="service" data-service="logo">
+  <section class="section service" data-service="logo">
     <h2>7. Création de logos & flyers</h2>
-    <p>Logo, flyers, cartes et bannières.</p>
+    <p>Logo, flyers, cartes, bannières.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
     <div class="custom-order">
       <label>Marque : <input type="text" class="co-text"></label>
@@ -300,7 +320,7 @@
   </section>
 
   <!-- 8. VPN -->
-  <section class="service" data-service="vpn">
+  <section class="section service" data-service="vpn">
     <h2>8. VPN</h2>
     <p>Connexion sécurisée, illimitée ou limitée.</p>
     <button class="btn btn-secondary toggle-form">Remplir le formulaire</button>
@@ -316,7 +336,6 @@
   <section id="tarifs">
     <h2>Tarifs détaillés</h2>
     <div class="tarif-grid">
-
       <!-- Facebook -->
       <div class="tarif-section">
         <h3>Facebook</h3>
@@ -341,7 +360,6 @@
           </tbody>
         </table>
       </div>
-
       <!-- TikTok -->
       <div class="tarif-section">
         <h3>TikTok</h3>
@@ -366,7 +384,6 @@
           </tbody>
         </table>
       </div>
-
       <!-- Instagram -->
       <div class="tarif-section">
         <h3>Instagram</h3>
@@ -391,7 +408,6 @@
           </tbody>
         </table>
       </div>
-
       <!-- YouTube -->
       <div class="tarif-section">
         <h3>YouTube</h3>
@@ -409,18 +425,17 @@
           </tbody>
         </table>
       </div>
-
     </div>
   </section>
 
   <!-- MON PROFIL -->
   <section id="profile">
     <h2>Mon profil</h2>
-    <img id="profile-pic" src="img/default-avatar.jpg" alt="Avatar">
+    <img id="profile-pic" src="img/IMG/default-avatar.png" alt="Avatar">
     <p id="user-email"></p>
     <label>Nom : <input type="text" id="profile-name"></label>
     <label>Téléphone : <input type="text" id="profile-phone"></label>
-    <label>Photo : <input type="file" id="profile-image"></label>
+    <label>Photo de profil : <input type="file" id="profile-image"></label>
     <button onclick="updateProfile()">Enregistrer mon profil</button>
     <button onclick="logout()">Déconnexion</button>
   </section>
@@ -434,7 +449,7 @@
   <!-- ASSISTANCE -->
   <section id="assistance">
     <h2>Assistance</h2>
-    <textarea id="assist-message" rows="4" placeholder="Votre message…"></textarea><br>
+    <textarea id="assist-message" rows="4" placeholder="Votre message..."></textarea><br>
     <button class="btn" onclick="sendAssistWhatsApp()">WhatsApp</button>
     <button class="btn" onclick="sendAssistEmail()">E‑mail</button>
   </section>
@@ -454,7 +469,7 @@
 
   <!-- TÉMOIGNAGE -->
   <div class="testimonial">
-    <img src="img/testimonial.jpg" alt="Témoignage">
+    <img src="img/IMG/Q4zoEmJGdQbADaJ3FFgW8.png" alt="Témoignage">
   </div>
 
   <!-- FOOTER -->
@@ -467,177 +482,149 @@
     <p>© 2025 Social Boost Horizon | Napopolo Exaucé</p>
   </footer>
 
-  <!-- JS: Firebase + profil + commandes + navigation + recherche + assistance -->
+  <!-- FIREBASE & JS -->
   <script type="module">
+    // ==== Firebase config & imports ====
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-    import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
     import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-storage.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBvVXfiFmnIVEZzaugsxt43ov0YU7quIhY",
       authDomain: "monsiteweb-beaee.firebaseapp.com",
+      databaseURL: "https://monsiteweb-beaee-default-rtdb.firebaseio.com",
       projectId: "monsiteweb-beaee",
       storageBucket: "monsiteweb-beaee.appspot.com",
       messagingSenderId: "847850292961",
-      appId: "1:847850292961:web:fab966f77e3a512cc119a0"
+      appId: "1:847850292961:web:fab966f77e3a512cc119a0",
+      measurementId: "G-4FD3J9HRSQ"
     };
     const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app), db = getFirestore(app), storage = getStorage(app);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
 
-    // Navigation & recherche
+    // ==== Mon profil ====
     function showSection(id) {
-      document.querySelectorAll('section, .banner, .testimonial').forEach(el=>el.style.display='none');
-      document.getElementById(id).style.display = (id==='home'? '' : 'block');
+      document.querySelectorAll('section, .banner, .testimonial').forEach(el => el.style.display = 'none');
+      document.getElementById(id).style.display = id==='home' ? '' : 'block';
       closeMenu();
     }
+
     function closeMenu(){ document.getElementById('nav-menu').style.display='none'; }
-    document.getElementById('hamburger-btn').onclick = ()=>{
-      const m=document.getElementById('nav-menu');
-      m.style.display=m.style.display==='block'?'none':'block';
-    };
-    function scrollHome(){ window.scrollTo({top:0,behavior:'smooth'}); }
-    document.getElementById('site-search').oninput = e=>{
-      const q=e.target.value.toLowerCase();
-      document.querySelectorAll('section, .banner, .testimonial').forEach(el=>
-        el.style.display = (!q||el.innerText.toLowerCase().includes(q)) ? '' : 'none'
-      );
+    document.getElementById('hamburger-btn').onclick = ()=> {
+      const m = document.getElementById('nav-menu');
+      m.style.display = m.style.display==='block'?'none':'block';
     };
 
-    // Profil
-    onAuthStateChanged(auth,user=>{
-      if(user){
-        showSection('profile');
-        getDoc(doc(db,'users',user.uid)).then(snap=>{
-          const d=snap.data()||{};
-          document.getElementById('user-email').textContent=user.email;
-          document.getElementById('profile-name').value=d.name||'';
-          document.getElementById('profile-phone').value=d.phone||'';
-          document.getElementById('profile-pic').src=d.profileImageUrl||'img/default-avatar.jpg';
-        });
-      } else showSection('home');
-    });
-    window.updateProfile = ()=>{
-      const u=auth.currentUser;
-      const name=document.getElementById('profile-name').value;
-      const phone=document.getElementById('profile-phone').value;
-      const file=document.getElementById('profile-image').files[0];
-      const userDoc=doc(db,'users',u.uid);
-      if(file){
-        const r=ref(storage,`profiles/${u.uid}.jpg`);
-        uploadBytes(r,file).then(()=>getDownloadURL(r)).then(url=>
-          updateDoc(userDoc,{name,phone,profileImageUrl:url})
-        ).then(()=>alert('Profil mis à jour'));
+    function showProfile(user) {
+      showSection('profile');
+      document.getElementById('user-email').textContent = `Connecté : ${user.email}`;
+      getDoc(doc(db, "users", user.uid)).then(docSnap => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          document.getElementById('profile-name').value = data.name || "";
+          document.getElementById('profile-phone').value = data.phone || "";
+          document.getElementById('profile-pic').src = data.profileImageUrl || 'img/IMG/default-avatar.png';
+        }
+      });
+    }
+
+    function updateProfile() {
+      const user = auth.currentUser;
+      const name = document.getElementById('profile-name').value;
+      const phone = document.getElementById('profile-phone').value;
+      const file = document.getElementById('profile-image').files[0];
+      const userDoc = doc(db, "users", user.uid);
+
+      if (file) {
+        const imgRef = ref(storage, `profileImages/${user.uid}.jpg`);
+        uploadBytes(imgRef, file).then(() => getDownloadURL(imgRef)).then(url =>
+          updateDoc(userDoc, { name, phone, profileImageUrl: url })
+        ).then(() => alert("Profil mis à jour !"));
       } else {
-        updateDoc(userDoc,{name,phone}).then(()=>alert('Profil mis à jour'));
+        updateDoc(userDoc, { name, phone }).then(() => alert("Profil mis à jour !"));
       }
-    };
-    window.logout = ()=>signOut(auth).then(()=>showSection('home'));
+    }
 
-    // Tarifs data
-    const pricingData = {
-      facebook: {
-        "Followers":    {1000:2100,5000:9500,10000:19200},
-        "Likes/Vues":   {1000:1500,5000:6500,10000:11500},
-        "J’aime page":  {1000:2800,5000:7000,10000:11000},
-        "Commentaires": {10:850},
-        "Partages":     {1000:800,5000:4000,10000:9000},
-        "Membres groupe":{1000:2000,5000:9000}
-      },
-      tiktok: {
-        "Abonnés":             {1000:2500,2000:5000,5000:9500,10000:19500},
-        "Likes vidéo":         {1000:1000,5000:4500,10000:8000},
-        "Vues vidéo":          {1000:800,5000:3500,10000:5000},
-        "Sauvegardes/Partages":{1000:500,5000:2000,10000:3500},
-        "Commentaires":        {10:500,1000:5000}
-      },
-      instagram: {
-        "Abonnés":    {1000:2500,2000:5000,5000:9500,10000:19500},
-        "Likes vidéo":{1000:1000,5000:4500,10000:8000},
-        "Vues vidéo": {1000:500,5000:2000,10000:3000},
-        "Commentaires":{10:300,1000:3000},
-        "Vues story": {1000:500,5000:2000,10000:4000}
-      },
-      youtube: {
-        "Abonnés":   {1000:5000,2000:9500,5000:24500,10000:50000},
-        "Vues/J’aime":{1000:1500,2000:3000,5000:7000,10000:13500}
-      }
-    };
+    function logout() {
+      signOut(auth).then(() => showSection('home'));
+    }
 
-    // Commandes
+    // Auth state
+    onAuthStateChanged(auth, user => {
+      if (user) showProfile(user);
+      else showSection('home');
+    });
+
+    // ==== Commandes localStorage ====
+    const PRICE_UNIT = 5;
     document.querySelectorAll('.toggle-form').forEach(btn=>{
       btn.onclick = ()=>{
-        const form=btn.nextElementSibling;
-        form.style.display=form.style.display==='block'?'none':'block';
-        initBoostForm(form);
+        const f = btn.nextElementSibling;
+        f.style.display = f.style.display==='block'?'none':'block';
+        initForm(f);
       };
     });
-    function initBoostForm(form){
-      if(form.dataset.inited) return;
-      form.dataset.inited='true';
-      const plat=form.querySelector('.co-platform'),
-            serv=form.querySelector('.co-service'),
-            qty=form.querySelector('.co-quantity'),
-            priceEl=form.querySelector('.price-estimate'),
-            btn=form.querySelector('.co-send');
-      plat.onchange=()=> {
-        serv.innerHTML='<option value="">Sélectionner</option>';
-        const key=plat.value.toLowerCase();
-        if(pricingData[key]){
-          Object.keys(pricingData[key]).forEach(s=>serv.add(new Option(s,s)));
-        }
+
+    function initForm(f) {
+      if (f.dataset.inited) return; f.dataset.inited = 'true';
+      const plat = f.querySelector('.co-platform');
+      const serv = f.querySelector('.co-service');
+      const qty  = f.querySelector('.co-quantity');
+      const link = f.querySelector('.co-link');
+      const pe   = f.querySelector('.price-estimate');
+      const btn  = f.querySelector('.co-send');
+      plat.onchange = () => {
+        serv.innerHTML = '<option value="">Sélectionner</option>';
+        ['Followers','Abonnés','Likes','Vues','Commentaires','Partages','Membres groupe']
+          .forEach(s=> serv.add(new Option(s,s)));
         update();
       };
-      serv.onchange=update; qty.oninput=update;
+      qty.oninput = update;
       function update(){
-        const p=plat.value.toLowerCase(), s=serv.value, q=parseInt(qty.value||0,10);
-        const map=pricingData[p] && pricingData[p][s], price=map && map[q];
-        priceEl.textContent= price
-          ? `Prix estimé : ${price.toLocaleString()} FCFA`
-          : 'Prix non disponible pour cette quantité';
+        const q= parseInt(qty.value||0,10);
+        pe.textContent = q>0 ? `Prix estimé : ${q*PRICE_UNIT} FCFA` : "";
       }
-      btn.onclick=()=>{
-        const p=plat.value,s=serv.value,q=qty.value,pr=priceEl.textContent,lk=form.querySelector('.co-link').value.trim();
-        if(!p||!s||!q||pr.startsWith('Prix non')) return alert('Complète correctement');
-        if(!confirm('Enregistrer et ouvrir WhatsApp ?')) return;
-        const arr=JSON.parse(localStorage.getItem('commandes')||'[]');
-        arr.push({plateforme:p,service:s,quantite:q,prix:pr,lien:lk});
+      btn.onclick = ()=>{
+        const p=plat.value, s=serv.value, q=qty.value, pr=pe.textContent, lk=link.value;
+        if(!p||!s||!q||!pr) return alert("Complète tous les champs.");
+        if(!confirm("Enregistrer et ouvrir WhatsApp ?")) return;
+        const arr = JSON.parse(localStorage.getItem('commandes')||'[]');
+        arr.push({ plateforme:p, service:s, quantite:q, prix:pr, lien:lk });
         localStorage.setItem('commandes',JSON.stringify(arr));
         renderOrders();
-        let msg=`Commande : ${p} / ${s} / ${q} / ${pr}` + (lk?` / Lien : ${lk}`:'');
+        let msg = `Commande: ${p} / ${s} / ${q} / ${pr}` + (lk?` / Lien:${lk}`:'');
         window.location.href=`https://wa.me/237699853665?text=${encodeURIComponent(msg)}`;
       };
-      update();
-    }
-    function renderOrders(){
-      const arr=JSON.parse(localStorage.getItem('commandes')||'[]'),
-            ct=document.getElementById('listeCommandes');
-      ct.innerHTML='';
-      arr.forEach((c,i)=> ct.innerHTML+=
-        `<div class="commande">
-          <strong>#${i+1}</strong><br>
-          Plateforme : ${c.plateforme}<br>
-          Service : ${c.service}<br>
-          Quantité : ${c.quantite}<br>
-          ${c.prix}<br>
-          ${c.lien?`Lien : <a href="${c.lien}" target="_blank">${c.lien}</a>`:''}
-        </div>`
-      );
     }
 
-    // Assistance
-    window.sendAssistWhatsApp=()=>{
-      const m=document.getElementById('assist-message').value;
-      if(!m) return alert('Écris un message');
-      window.open(`https://wa.me/237699853665?text=${encodeURIComponent(m)}`,'_blank');
-    };
-    window.sendAssistEmail=()=>{
-      const m=encodeURIComponent(document.getElementById('assist-message').value);
-      window.location.href=`mailto:contact@socialboostehorizon.com?subject=Assistance&body=${m}`;
-    };
+    function renderOrders(){
+      const arr = JSON.parse(localStorage.getItem('commandes')||'[]');
+      const ctn = document.getElementById('listeCommandes');
+      ctn.innerHTML = '';
+      arr.forEach((c,i)=>{
+        ctn.innerHTML += `<div class="commande">
+          <strong>#${i+1}</strong> ${c.plateforme} - ${c.service} - ${c.quantite} - ${c.prix}
+          ${c.lien?`<br><small>Lien: <a href="${c.lien}" target="_blank">${c.lien}</a></small>`:''}
+        </div>`;
+      });
+    }
+
+    // ==== Assistance ====
+    function sendAssistWhatsApp(){
+      const m = document.getElementById('assist-message').value;
+      if(!m) return alert("Écris un message.");
+      window.open(`https://wa.me/237699853665?text=${encodeURIComponent(m)}`, '_blank');
+    }
+    function sendAssistEmail(){
+      const m = encodeURIComponent(document.getElementById('assist-message').value);
+      window.location.href = `mailto:contact@socialboostehorizon.com?subject=Assistance&body=${m}`;
+    }
 
     // INIT
-    window.onload=()=>{
+    window.onload = ()=>{
       renderOrders();
       showSection('home');
     };
